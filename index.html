@@ -119,13 +119,568 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <!-- <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+				<div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/dd355129/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    41 分钟 读完 (大约 6178 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/dd355129/">shell相关</a>
+            
+        </h1>
+        <div class="content">
+            <p>我使用<em>shell</em>过程中碰到的一些问题，记录在此以便查询。</p>
+<h2 id="shell中各种括号的作用"><a href="#shell中各种括号的作用" class="headerlink" title="shell中各种括号的作用"></a>shell中各种括号的作用</h2><h3 id="单小括号"><a href="#单小括号" class="headerlink" title="单小括号 ()"></a>单小括号 ()</h3><ol>
+<li>命令组。括号中的命令将会新开一个子shell顺序执行，所以括号中的变量不能够被脚本余下的部分使用。括号中多个命令之间用分号隔开，最后一个命令可以没有分号，各命令和括号之间不必有空格。</li>
+<li>命令替换。等同于<code>cmd</code>，shell扫描一遍命令行，发现了$(cmd)结构，便将$(cmd)中的cmd执行一次，得到其标准输出，再将此输出放到原来命令。有些shell不支持，如tcsh。</li>
+<li>用于初始化数组。如：array=(a b c d)</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/dd355129/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/87856f92/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1121 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/87856f92/">Centos-NTP</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
+<li><p>NTP时钟同步方式说明<br> NTP在linux下有两种时钟同步方式，分别为直接同步和平滑同步：</p>
+<ul>
+<li><p>直接同步<br>  使用ntpdate命令进行同步，直接进行时间变更。如果服务器上存在一个12点运行的任务，当前服务器时间是13点，但标准时间时11点，使用此命令可能会造成任务重复执行。因此使用ntpdate同步可能会引发风险，因此该命令也多用于配置时钟同步服务时第一次同步时间时使用。 </p>
+</li>
+<li><p>平滑同步<br>  使用ntpd进行时钟同步，可以保证一个时间不经历两次，它每次同步时间的偏移量不会太陡，是慢慢来的，这正因为这样，ntpd平滑同步可能耗费的时间比较长。</p></li></ul></li></ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/87856f92/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/735ce64f/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 分钟 读完 (大约 3208 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/735ce64f/">HA高可用集群搭建</a>
+            
+        </h1>
+        <div class="content">
+            <p>之前已经搭建好了一个集群，<a href="https://gallonhu.github.io/posts/f9bc2212">传送</a>.这次在原来的基础上做一个双<em>master</em>的高可用集群。</p>
+<h2 id="Hadoop-HA简介及工作原理"><a href="#Hadoop-HA简介及工作原理" class="headerlink" title="Hadoop HA简介及工作原理"></a>Hadoop HA简介及工作原理</h2><p>Hadoop NameNode官方开始支持HA集群默认是从2.0开始，之前的版本均是不支持NameNode HA的高可用的。</p>
+<h3 id="Hadoop-HA简介"><a href="#Hadoop-HA简介" class="headerlink" title="Hadoop HA简介"></a>Hadoop HA简介</h3><h4 id="Hadoop-HA集群运作机制介绍"><a href="#Hadoop-HA集群运作机制介绍" class="headerlink" title="Hadoop-HA集群运作机制介绍"></a>Hadoop-HA集群运作机制介绍</h4><ul>
+<li>HA即高可用（7*24小时不中断服务）</li>
+<li>实现高可用最关键的是消除单点故障</li>
+<li>分成各个组件的HA机制——HDFS的HA、YARN的HA</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/735ce64f/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/f9bc2212/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=649&amp;q=80" alt="大数据平台安装">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:00:04.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    28 分钟 读完 (大约 4206 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/f9bc2212/">大数据平台安装</a>
+            
+        </h1>
+        <div class="content">
+            <p>本文主要记录了 hadoop 大数据集群的相关组件安装及记录过程</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/f9bc2212/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/1f364dfa/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 1955 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/1f364dfa/">RabbitMQ基础概念</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="消息队列相关"><a href="#消息队列相关" class="headerlink" title="消息队列相关"></a>消息队列相关</h2><h3 id="消息队列是什么"><a href="#消息队列是什么" class="headerlink" title="消息队列是什么"></a>消息队列是什么</h3><p><a href="https://www.wikiwand.com/en/Message_queue" target="_blank" rel="noopener">wiki</a>上给出的定义为：</p>
+<p>在<a href="https://www.wikiwand.com/zh-hans/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" target="_blank" rel="noopener">计算机科学</a>中，<strong>消息队列</strong>（英语：Message queue）是一种<a href="https://www.wikiwand.com/zh-hans/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1" target="_blank" rel="noopener">进程间通信</a>或同一进程的不同<a href="https://www.wikiwand.com/zh-hans/%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">线程</a>间的通信方式，<a href="https://www.wikiwand.com/zh-hans/%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">软体</a>的<a href="https://www.wikiwand.com/zh-hans/%E8%B2%AF%E5%88%97" target="_blank" rel="noopener">贮列</a>用来处理一系列的输入，通常是来自使用者。消息队列提供了<a href="https://www.wikiwand.com/zh-hans/%E7%95%B0%E6%AD%A5" target="_blank" rel="noopener">异步</a>的<a href="https://www.wikiwand.com/zh-hans/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">通信协议</a>，每一个贮列中的纪录包含详细说明的资料，包含发生的时间，输入装置的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在<a href="https://www.wikiwand.com/zh-hans/%E9%98%9F%E5%88%97" target="_blank" rel="noopener">队列</a>中，直到接收者取回它。<a href="https://www.wikiwand.com/zh-hans/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97#citenote1" target="_blank" rel="noopener">[1]</a></p>
+<p>一个 <a href="https://www.wikiwand.com/zh-hans/WIMP_(%E9%9B%BB%E8%85%A6)" target="_blank" rel="noopener">WIMP</a> 环境像是 <a href="https://www.wikiwand.com/zh-hans/Microsoft_Windows" target="_blank" rel="noopener">Microsoft Windows</a>，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来储存使用者产生的事件到一个 <strong>事件贮列</strong> 中。系统把每个事件从事件贮列中传递给目标的应用程式。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/1f364dfa/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/8509da34/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576344069300-e4273f6dfdf8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="spark基本概念">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:43:38.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 小时 读完 (大约 11052 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/8509da34/">spark基本概念</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="RDD-Programming-Guide"><a href="#RDD-Programming-Guide" class="headerlink" title="RDD Programming Guide"></a>RDD Programming Guide</h1><p>翻译自<a href="http://spark.apache.org/docs/latest/rdd-programming-guide.html" target="_blank" rel="noopener">官方文档</a>，本文值翻译了部分 Python 部分。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从高层次看，每个 Spark 应用都包含一个驱动程序，用于执行用户的 main 函数以及在集群上进行各种并行操作。Spark 提供的重要抽象是弹性分布式数据集（ <em>resilient distributed dataset</em>），这是一个包含诸多元素、被划分到不同节点上进行并行处理的数据集。RDDs 通过打开一个 HDFS 文件（或者其他任何 hadoop 支持的文件系统）、在驱动程序中打开一个已有的 Scala 数据集或者由其他 RDD 转换得到。用户可以要求 Spark 将 RDD 持久化到内存中，这样可以有效的在并行运算中复用。另外，RDDs 在节点发生错误时会自动恢复。</p>
+<p>Spark 的另一个抽象是在并行运算中使用的共享变量。在默认情况下，当 Spark 将一个函数转化成许多任务在不同节点上运行的时候，对于所有在函数中使用的变量，每一个任务都会得到一个副本。有时，一个变量需要在任务之间或者任务和驱动程序之间共享。Spark 支持两种共享变量：广播变量，用来将一个值缓存到所有节点的内存中；累加器，只能用于累加，比如计数器和求和。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/8509da34/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/5df87593/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576413168154-035c50dae982?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="markdown基本操作">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:38:51.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2039 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/5df87593/">markdown基本操作</a>
+            
+        </h1>
+        <div class="content">
+            <p><em>Markdown</em>常用的一些语法集合。</p>
+<h2 id="数学公式及希腊字母"><a href="#数学公式及希腊字母" class="headerlink" title="数学公式及希腊字母"></a>数学公式及希腊字母</h2><h3 id="行内与独行"><a href="#行内与独行" class="headerlink" title="行内与独行"></a>行内与独行</h3><ol>
+<li>行内公式：将公式插入到本行内，符号：<code>$公式内容$</code>，如：$xyz$</li>
+<li>独行公式：将公式插入到新的一行内，并且居中，符号：<code>$$公式内容$$</code>，如：$$xyz$$</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/5df87593/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/8b7d2b6d/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576420231698-a2223913d98d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="python配置">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:33:49.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 709 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/8b7d2b6d/">python配置</a>
+            
+        </h1>
+        <div class="content">
+            <p>记录 python 的一些基本常用配置，方便以后使用。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/8b7d2b6d/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/61128e07/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576379676103-b31985f96ae2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RAID">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:20:18.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    29 分钟 读完 (大约 4350 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/61128e07/">RAID</a>
+            
+        </h1>
+        <div class="content">
+            <p>实验室刚买了五台服务器，机子硬盘出场配置为：两块<em>ssd</em>组成<em>RAID1</em>、三块<em>hdd</em>组成一个<em>RAID5</em>。对于我们来说，这么组合有点浪费空间，所以准备重新配置一下，以下为<code>wiki</code>上<em>RAID</em>的概念，记录在此方便以后查阅。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/61128e07/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
     
 <div class="card">
     
     <div class="card-image">
         <a href="/posts/684e7cbb/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo配置指南">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo&amp;icuras配置指南">
         </a>
     </div>
     
@@ -152,7 +707,625 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/posts/684e7cbb/">hexo配置指南</a>
+                <a class="has-link-black-ter" href="/posts/684e7cbb/">hexo&amp;icuras配置指南</a>
+            
+        </h1>
+        <div class="content">
+            <p>使用hexo写了大概一年左右的博客，期间参考网上各种教程给博客来了个大装修。但就像是做衣服，使用不同的布料，缝缝补补给生硬凑出来的一样，最终成了四不像。非但如此，因为各种插件和没用的渲染，博客的打开速度简直惨不忍睹。</p>
+<p>所以，打算翻新一下，从头开始再搭一个。这次的原则就是简洁，不再搞那些没用的花里胡哨的东西。配置过程记录如下。所有的配置文件在<a href="https://github.com/GallonHu/blog-config" target="_blank" rel="noopener">github仓库</a>。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/684e7cbb/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                <!--  -->
+                    <!-- <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/dd355129/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    41 分钟 读完 (大约 6178 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/dd355129/">shell相关</a>
+            
+        </h1>
+        <div class="content">
+            <p>我使用<em>shell</em>过程中碰到的一些问题，记录在此以便查询。</p>
+<h2 id="shell中各种括号的作用"><a href="#shell中各种括号的作用" class="headerlink" title="shell中各种括号的作用"></a>shell中各种括号的作用</h2><h3 id="单小括号"><a href="#单小括号" class="headerlink" title="单小括号 ()"></a>单小括号 ()</h3><ol>
+<li>命令组。括号中的命令将会新开一个子shell顺序执行，所以括号中的变量不能够被脚本余下的部分使用。括号中多个命令之间用分号隔开，最后一个命令可以没有分号，各命令和括号之间不必有空格。</li>
+<li>命令替换。等同于<code>cmd</code>，shell扫描一遍命令行，发现了$(cmd)结构，便将$(cmd)中的cmd执行一次，得到其标准输出，再将此输出放到原来命令。有些shell不支持，如tcsh。</li>
+<li>用于初始化数组。如：array=(a b c d)</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/dd355129/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/87856f92/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1121 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/87856f92/">Centos-NTP</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
+<li><p>NTP时钟同步方式说明<br> NTP在linux下有两种时钟同步方式，分别为直接同步和平滑同步：</p>
+<ul>
+<li><p>直接同步<br>  使用ntpdate命令进行同步，直接进行时间变更。如果服务器上存在一个12点运行的任务，当前服务器时间是13点，但标准时间时11点，使用此命令可能会造成任务重复执行。因此使用ntpdate同步可能会引发风险，因此该命令也多用于配置时钟同步服务时第一次同步时间时使用。 </p>
+</li>
+<li><p>平滑同步<br>  使用ntpd进行时钟同步，可以保证一个时间不经历两次，它每次同步时间的偏移量不会太陡，是慢慢来的，这正因为这样，ntpd平滑同步可能耗费的时间比较长。</p></li></ul></li></ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/87856f92/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/735ce64f/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 分钟 读完 (大约 3208 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/735ce64f/">HA高可用集群搭建</a>
+            
+        </h1>
+        <div class="content">
+            <p>之前已经搭建好了一个集群，<a href="https://gallonhu.github.io/posts/f9bc2212">传送</a>.这次在原来的基础上做一个双<em>master</em>的高可用集群。</p>
+<h2 id="Hadoop-HA简介及工作原理"><a href="#Hadoop-HA简介及工作原理" class="headerlink" title="Hadoop HA简介及工作原理"></a>Hadoop HA简介及工作原理</h2><p>Hadoop NameNode官方开始支持HA集群默认是从2.0开始，之前的版本均是不支持NameNode HA的高可用的。</p>
+<h3 id="Hadoop-HA简介"><a href="#Hadoop-HA简介" class="headerlink" title="Hadoop HA简介"></a>Hadoop HA简介</h3><h4 id="Hadoop-HA集群运作机制介绍"><a href="#Hadoop-HA集群运作机制介绍" class="headerlink" title="Hadoop-HA集群运作机制介绍"></a>Hadoop-HA集群运作机制介绍</h4><ul>
+<li>HA即高可用（7*24小时不中断服务）</li>
+<li>实现高可用最关键的是消除单点故障</li>
+<li>分成各个组件的HA机制——HDFS的HA、YARN的HA</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/735ce64f/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/f9bc2212/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=649&amp;q=80" alt="大数据平台安装">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T03:00:04.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    28 分钟 读完 (大约 4206 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/f9bc2212/">大数据平台安装</a>
+            
+        </h1>
+        <div class="content">
+            <p>本文主要记录了 hadoop 大数据集群的相关组件安装及记录过程</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/f9bc2212/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/1f364dfa/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 1955 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/1f364dfa/">RabbitMQ基础概念</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="消息队列相关"><a href="#消息队列相关" class="headerlink" title="消息队列相关"></a>消息队列相关</h2><h3 id="消息队列是什么"><a href="#消息队列是什么" class="headerlink" title="消息队列是什么"></a>消息队列是什么</h3><p><a href="https://www.wikiwand.com/en/Message_queue" target="_blank" rel="noopener">wiki</a>上给出的定义为：</p>
+<p>在<a href="https://www.wikiwand.com/zh-hans/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" target="_blank" rel="noopener">计算机科学</a>中，<strong>消息队列</strong>（英语：Message queue）是一种<a href="https://www.wikiwand.com/zh-hans/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1" target="_blank" rel="noopener">进程间通信</a>或同一进程的不同<a href="https://www.wikiwand.com/zh-hans/%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">线程</a>间的通信方式，<a href="https://www.wikiwand.com/zh-hans/%E8%BB%9F%E9%AB%94" target="_blank" rel="noopener">软体</a>的<a href="https://www.wikiwand.com/zh-hans/%E8%B2%AF%E5%88%97" target="_blank" rel="noopener">贮列</a>用来处理一系列的输入，通常是来自使用者。消息队列提供了<a href="https://www.wikiwand.com/zh-hans/%E7%95%B0%E6%AD%A5" target="_blank" rel="noopener">异步</a>的<a href="https://www.wikiwand.com/zh-hans/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">通信协议</a>，每一个贮列中的纪录包含详细说明的资料，包含发生的时间，输入装置的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在<a href="https://www.wikiwand.com/zh-hans/%E9%98%9F%E5%88%97" target="_blank" rel="noopener">队列</a>中，直到接收者取回它。<a href="https://www.wikiwand.com/zh-hans/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97#citenote1" target="_blank" rel="noopener">[1]</a></p>
+<p>一个 <a href="https://www.wikiwand.com/zh-hans/WIMP_(%E9%9B%BB%E8%85%A6)" target="_blank" rel="noopener">WIMP</a> 环境像是 <a href="https://www.wikiwand.com/zh-hans/Microsoft_Windows" target="_blank" rel="noopener">Microsoft Windows</a>，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来储存使用者产生的事件到一个 <strong>事件贮列</strong> 中。系统把每个事件从事件贮列中传递给目标的应用程式。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/1f364dfa/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/8509da34/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576344069300-e4273f6dfdf8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="spark基本概念">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:43:38.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 小时 读完 (大约 11052 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/8509da34/">spark基本概念</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="RDD-Programming-Guide"><a href="#RDD-Programming-Guide" class="headerlink" title="RDD Programming Guide"></a>RDD Programming Guide</h1><p>翻译自<a href="http://spark.apache.org/docs/latest/rdd-programming-guide.html" target="_blank" rel="noopener">官方文档</a>，本文值翻译了部分 Python 部分。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从高层次看，每个 Spark 应用都包含一个驱动程序，用于执行用户的 main 函数以及在集群上进行各种并行操作。Spark 提供的重要抽象是弹性分布式数据集（ <em>resilient distributed dataset</em>），这是一个包含诸多元素、被划分到不同节点上进行并行处理的数据集。RDDs 通过打开一个 HDFS 文件（或者其他任何 hadoop 支持的文件系统）、在驱动程序中打开一个已有的 Scala 数据集或者由其他 RDD 转换得到。用户可以要求 Spark 将 RDD 持久化到内存中，这样可以有效的在并行运算中复用。另外，RDDs 在节点发生错误时会自动恢复。</p>
+<p>Spark 的另一个抽象是在并行运算中使用的共享变量。在默认情况下，当 Spark 将一个函数转化成许多任务在不同节点上运行的时候，对于所有在函数中使用的变量，每一个任务都会得到一个副本。有时，一个变量需要在任务之间或者任务和驱动程序之间共享。Spark 支持两种共享变量：广播变量，用来将一个值缓存到所有节点的内存中；累加器，只能用于累加，比如计数器和求和。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/8509da34/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/5df87593/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576413168154-035c50dae982?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="markdown基本操作">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:38:51.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2039 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/5df87593/">markdown基本操作</a>
+            
+        </h1>
+        <div class="content">
+            <p><em>Markdown</em>常用的一些语法集合。</p>
+<h2 id="数学公式及希腊字母"><a href="#数学公式及希腊字母" class="headerlink" title="数学公式及希腊字母"></a>数学公式及希腊字母</h2><h3 id="行内与独行"><a href="#行内与独行" class="headerlink" title="行内与独行"></a>行内与独行</h3><ol>
+<li>行内公式：将公式插入到本行内，符号：<code>$公式内容$</code>，如：$xyz$</li>
+<li>独行公式：将公式插入到新的一行内，并且居中，符号：<code>$$公式内容$$</code>，如：$$xyz$$</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/5df87593/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/8b7d2b6d/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576420231698-a2223913d98d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="python配置">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:33:49.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 709 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/8b7d2b6d/">python配置</a>
+            
+        </h1>
+        <div class="content">
+            <p>记录 python 的一些基本常用配置，方便以后使用。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/8b7d2b6d/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/61128e07/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576379676103-b31985f96ae2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RAID">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:20:18.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    29 分钟 读完 (大约 4350 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/61128e07/">RAID</a>
+            
+        </h1>
+        <div class="content">
+            <p>实验室刚买了五台服务器，机子硬盘出场配置为：两块<em>ssd</em>组成<em>RAID1</em>、三块<em>hdd</em>组成一个<em>RAID5</em>。对于我们来说，这么组合有点浪费空间，所以准备重新配置一下，以下为<code>wiki</code>上<em>RAID</em>的概念，记录在此方便以后查阅。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/61128e07/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/posts/684e7cbb/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo&amp;icuras配置指南">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-11T03:46:54.000Z">2019-12-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1415 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/684e7cbb/">hexo&amp;icuras配置指南</a>
             
         </h1>
         <div class="content">
@@ -181,70 +1354,7 @@
 
 
 </div> -->
-                
-                    <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/posts/684e7cbb/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo配置指南">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-11T03:46:54.000Z">2019-12-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    9 分钟 读完 (大约 1415 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/684e7cbb/">hexo配置指南</a>
-            
-        </h1>
-        <div class="content">
-            <p>使用hexo写了大概一年左右的博客，期间参考网上各种教程给博客来了个大装修。但就像是做衣服，使用不同的布料，缝缝补补给生硬凑出来的一样，最终成了四不像。非但如此，因为各种插件和没用的渲染，博客的打开速度简直惨不忍睹。</p>
-<p>所以，打算翻新一下，从头开始再搭一个。这次的原则就是简洁，不再搞那些没用的花里胡哨的东西。配置过程记录如下。所有的配置文件在<a href="https://github.com/GallonHu/blog-config" target="_blank" rel="noopener">github仓库</a>。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/684e7cbb/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-</div>
-                
+                <!--  -->
                 
 
 
@@ -289,7 +1399,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            1
+                            10
                         </p>
                     </a>
                 </div>
@@ -301,7 +1411,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            1
+                            4
                         </p>
                     </a>
                 </div>
@@ -313,7 +1423,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            2
+                            12
                         </p>
                     </a>
                 </div>
@@ -369,12 +1479,36 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
+            <span class="level-start">
+                <span class="level-item">Bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Others/">
+            <span class="level-start">
+                <span class="level-item">Others</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li>
             </ul>
@@ -390,16 +1524,92 @@
         
         <article class="media">
             
-            <a href="/posts/684e7cbb/" class="media-left">
+            <a href="/posts/dd355129/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo配置指南">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-11T03:46:54.000Z">2019-12-11</time></div>
-                    <a href="/posts/684e7cbb/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo配置指南</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
+                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/87856f92/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
+                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/735ce64f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
+                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/f9bc2212/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=649&amp;q=80" alt="大数据平台安装">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:00:04.000Z">2019-12-16</time></div>
+                    <a href="/posts/f9bc2212/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大数据平台安装</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/1f364dfa/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time></div>
+                    <a href="/posts/1f364dfa/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RabbitMQ基础概念</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
                     </p>
@@ -424,7 +1634,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -452,6 +1662,76 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Hexo/">
                         <span class="tag">Hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Install/">
+                        <span class="tag">Install</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Markdown/">
+                        <span class="tag">Markdown</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NTP/">
+                        <span class="tag">NTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RAID/">
+                        <span class="tag">RAID</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RabbitMQ/">
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shell/">
+                        <span class="tag">Shell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spark/">
+                        <span class="tag">Spark</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Virtualenv/">
+                        <span class="tag">Virtualenv</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -481,12 +1761,36 @@
             </h3>
             <ul class="menu-list">
             <li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
+            <span class="level-start">
+                <span class="level-item">Bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Others/">
+            <span class="level-start">
+                <span class="level-item">Others</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li>
             </ul>
@@ -502,16 +1806,92 @@
         
         <article class="media">
             
-            <a href="/posts/684e7cbb/" class="media-left">
+            <a href="/posts/dd355129/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576078767295-5d84f7a538fd?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2734&amp;q=80" alt="hexo配置指南">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-11T03:46:54.000Z">2019-12-11</time></div>
-                    <a href="/posts/684e7cbb/" class="title has-link-black-ter is-size-6 has-text-weight-normal">hexo配置指南</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
+                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/87856f92/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
+                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/735ce64f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
+                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/f9bc2212/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=649&amp;q=80" alt="大数据平台安装">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:00:04.000Z">2019-12-16</time></div>
+                    <a href="/posts/f9bc2212/" class="title has-link-black-ter is-size-6 has-text-weight-normal">大数据平台安装</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/1f364dfa/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time></div>
+                    <a href="/posts/1f364dfa/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RabbitMQ基础概念</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
                     </p>
@@ -536,7 +1916,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -564,6 +1944,76 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Hexo/">
                         <span class="tag">Hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Install/">
+                        <span class="tag">Install</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Jupyter/">
+                        <span class="tag">Jupyter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Markdown/">
+                        <span class="tag">Markdown</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NTP/">
+                        <span class="tag">NTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RAID/">
+                        <span class="tag">RAID</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RabbitMQ/">
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shell/">
+                        <span class="tag">Shell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spark/">
+                        <span class="tag">Spark</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Virtualenv/">
+                        <span class="tag">Virtualenv</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
