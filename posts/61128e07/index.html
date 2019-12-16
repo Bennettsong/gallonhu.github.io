@@ -465,345 +465,6 @@
     </div>
 </div>
 </div>
-                <!--  -->
-                    <!-- <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main twoLine">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1576379676103-b31985f96ae2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RAID">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-16T02:20:18.000Z">2019-12-16</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    29 分钟 读完 (大约 4350 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                RAID
-            
-        </h1>
-        <div class="content">
-            <p>实验室刚买了五台服务器，机子硬盘出场配置为：两块<em>ssd</em>组成<em>RAID1</em>、三块<em>hdd</em>组成一个<em>RAID5</em>。对于我们来说，这么组合有点浪费空间，所以准备重新配置一下，以下为<code>wiki</code>上<em>RAID</em>的概念，记录在此方便以后查阅。</p>
-<a id="more"></a>
-
-<h2 id="RAID"><a href="#RAID" class="headerlink" title="RAID"></a>RAID</h2><p><strong>独立硬盘冗余阵列</strong>（<strong>RAID</strong>, <strong>R</strong>edundant <strong>A</strong>rray of <strong>I</strong>ndependent <strong>D</strong>isks），旧称<strong>廉价磁盘冗余阵列</strong>（<strong>R</strong>edundant <strong>A</strong>rray of <strong>I</strong>nexpensive <strong>D</strong>isks），简称<strong>磁盘阵列</strong>。利用虚拟化储存技术把多个硬盘组合起来，成为一个或多个硬盘阵列组，目的为提升效能或数据冗馀，或是两者同时提升。</p>
-<p>在运作中，取决于 RAID 层级不同，数据会以多种模式分散于各个硬盘，RAID 层级的命名会以 RAID 开头并带数字，例如：RAID 0、RAID 1、RAID 5、RAID 6、RAID 7、RAID 01、RAID 10、RAID 50、RAID 60。每种等级都有其理论上的优缺点，不同的等级在两个目标间取得平衡，分别是增加数据可靠性以及增加存储器（群）读写效能。</p>
-<p>简单来说，RAID把多个硬盘组合成为一个逻辑硬盘，因此，作业系统只会把它当作一个实体硬盘。RAID常被用在伺服器电脑上，并且常使用完全相同的硬盘作为组合。由于硬盘价格的不断下降与RAID功能更加有效地与主机板整合，它也成为普通用户的一个选择，特别是需要大容量储存空间的工作，如：视频与音频制作。</p>
-<!-- less -->
-
-<h2 id="磁碟阵列比较表"><a href="#磁碟阵列比较表" class="headerlink" title="磁碟阵列比较表"></a>磁碟阵列比较表</h2><table>
-<thead>
-<tr>
-<th>RAID等级</th>
-<th>最少硬盘</th>
-<th>最大容错</th>
-<th>可用容量</th>
-<th>读取效能</th>
-<th>写入效能</th>
-<th>安全性</th>
-<th>目的</th>
-<th>应用产业</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单一硬盘</td>
-<td>(参考)</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>无</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>JBOD</td>
-<td>1</td>
-<td>0</td>
-<td>n</td>
-<td>1</td>
-<td>1</td>
-<td>无（同RAID 0）</td>
-<td>增加容量</td>
-<td>个人（暂时）储存备份</td>
-</tr>
-<tr>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>n</td>
-<td>n</td>
-<td>n</td>
-<td>一个硬盘异常，全部硬盘都会异常</td>
-<td>追求最大容量、速度</td>
-<td>影片剪接快取用途</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>n-1</td>
-<td>1</td>
-<td>n</td>
-<td>1</td>
-<td>高，一个正常即可</td>
-<td>追求最大安全性</td>
-<td>个人、企业备份</td>
-</tr>
-<tr>
-<td>5</td>
-<td>3</td>
-<td>1</td>
-<td>n-1</td>
-<td>n-1</td>
-<td>n-1</td>
-<td>高</td>
-<td>追求最大容量、最小预算</td>
-<td>个人、企业备份</td>
-</tr>
-<tr>
-<td>6</td>
-<td>4</td>
-<td>2</td>
-<td>n-2</td>
-<td>n-2</td>
-<td>n-2</td>
-<td>安全性较RAID 5高</td>
-<td>同RAID 5，但较安全</td>
-<td>个人、企业备份</td>
-</tr>
-<tr>
-<td>10</td>
-<td>4</td>
-<td></td>
-<td></td>
-<td>n</td>
-<td></td>
-<td>高</td>
-<td>综合RAID 0/1优点，理论速度较快</td>
-<td>大型数据库、伺服器</td>
-</tr>
-<tr>
-<td>50</td>
-<td>6</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>高</td>
-<td>提升数据安全</td>
-<td></td>
-</tr>
-<tr>
-<td>60</td>
-<td>8</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>高</td>
-<td>提升数据安全</td>
-<td></td>
-</tr>
-</tbody></table>
-<ol>
-<li>n代表硬盘总数</li>
-<li>JBOD（Just a Bunch Of Disks）指将数个物理硬盘，在操作系统中合并成一个逻辑硬盘，以直接增加容量</li>
-<li>依不同 RAID 厂商实作演算法对于效能表现会有不同，效能公式仅供参考</li>
-<li>RAID 10、50、60 依实作 Parity 不同公式也不同</li>
-</ol>
-<h2 id="标准RAID"><a href="#标准RAID" class="headerlink" title="标准RAID"></a>标准RAID</h2><h3 id="RAID-0"><a href="#RAID-0" class="headerlink" title="RAID 0"></a>RAID 0</h3><p>RAID 0亦称为带区集。它将两个以上的磁盘并联起来，成为一个大容量的磁盘。在存放数据时，分段后分散储存在这些磁盘中，因为读写时都可以并行处理，所以在所有的级别中，RAID 0的速度是最快的。但是RAID 0既没有冗余功能，也不具备容错能力，如果一个磁盘（物理）损坏，所有数据都会丢失，危险程度与JBOD相当。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/260px-RAID_0.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-1"><a href="#RAID-1" class="headerlink" title="RAID 1"></a>RAID 1</h3><p>两组以上的N个磁盘相互作镜像，在一些多线程操作系统中能有很好的读取速度，理论上读取速度等于硬盘数量的倍数，与RAID 0相同。另外写入速度有微小的降低。只要一个磁盘正常即可维持运作，可靠性最高。其原理为在主硬盘上存放数据的同时也在镜像硬盘上写一样的数据。当主硬盘（物理）损坏时，镜像硬盘则代替主硬盘的工作。因为有镜像硬盘做数据备份，所以RAID 1的数据安全性在所有的RAID级别上来说是最好的。但无论用多少磁碟做RAID 1，仅算一个磁碟的容量，是所有RAID中磁盘利用率最低的一个级别。</p>
-<p>如果用两个不同大小的磁碟建RAID 1，可用空间为较小的那个磁碟，较大的磁碟多出来的空间也可以分割成一个区来使用，不会造成浪费。<br>$$<br>Size=min(S_1,S_2,S_3…)<br>$$</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/260px-RAID_1.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-2"><a href="#RAID-2" class="headerlink" title="RAID 2"></a>RAID 2</h3><p>这是RAID 0的改良版，以汉明码的方式将数据进行编码后分割为独立的位元，并将数据分别写入硬盘中。因为在数据中加入错误修正码（ECC，Error Correction Code），所以数据整体的容量会比原始数据大一些。</p>
-<p>RAID 2最少要三块硬盘方能运作。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/600px-RAID2_arch.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-3"><a href="#RAID-3" class="headerlink" title="RAID 3"></a>RAID 3</h3><p>采用Bit－interleaving（数据交错储存）技术，它需要通过编码再将数据位元分割后分别存在硬盘中，而将同位元检查后单独存在一个硬盘中，但由于数据内的位元分散在不同的硬盘上，因此就算要读取一小段数据数据都可能需要所有的硬盘进行工作，所以这种规格比较适于读取大量数据时使用。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/440px-RAID_3.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-4"><a href="#RAID-4" class="headerlink" title="RAID 4"></a>RAID 4</h3><p>它与RAID 3不同的是它在分割时是以区块为单位分别存在硬盘中，但每次的数据存取都必须从同位元检查的那个硬盘中取出对应的同位元数据进行核对，由于过于频繁的使用，所以对硬盘的损耗可能会提高。（块交织技术，Block interleaving）</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/440px-RAID_4.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-5"><a href="#RAID-5" class="headerlink" title="RAID 5"></a>RAID 5</h3><p>RAID Level 5是一种储存性能、数据安全和存储成本兼顾的存储解决方案。它使用的是Disk Striping（硬盘分割）技术。</p>
-<p>RAID 5至少需要三个硬盘，RAID 5不是对存储的数据进行备份，而是把数据和相对应的奇偶校验信息存储到组成RAID5的各个磁盘上，并且奇偶校验信息和相对应的数据分别存储于不同的磁盘上。当RAID5的一个磁盘数据发生损坏后，可以利用剩下的数据和相应的奇偶校验信息去恢复被损坏的数据。RAID 5可以理解为是RAID 0和RAID 1的折衷方案。RAID 5可以为系统提供数据安全保障，但保障程度要比镜像低而磁盘空间利用率要比镜像高。RAID 5具有和RAID 0相近似的数据读取速度，只是因为多了一个奇偶校验信息，写入数据的速度相对单独写入一块硬盘的速度略慢，若使用“回写快取”可以让效能改善不少。同时由于多个数据对应一个奇偶校验信息，RAID 5的磁盘空间利用率要比RAID 1高，存储成本相对较便宜。<br>$$<br>Size=(N-1)*min(S_1,S_2,…,S_N)<br>$$</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/440px-RAID_5.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-6"><a href="#RAID-6" class="headerlink" title="RAID 6"></a>RAID 6</h3><p>与RAID 5相比，RAID 6增加第二个独立的奇偶校验信息块。两个独立的奇偶系统使用不同的算法，数据的可靠性非常高，任意两块磁盘同时失效时不会影响数据完整性。RAID 6需要分配给奇偶校验信息更大的磁盘空间和额外的校验计算，相对于RAID 5有更大的IO操作量和计算量，其“写性能”强烈取决于具体的实现方案，因此RAID 6通常不会通过软件方式来实现，而更可能通过硬件方式实现。</p>
-<p>同一阵列中最多容许两个磁盘损坏。更换新磁盘后，数据将会重新算出并写入新的磁盘中。</p>
-<p>依照设计理论，RAID 6必须具备四个以上的磁盘才能生效。可使用的容量为硬盘总数减去2的差，乘以最小容量，公式为：<br>$$<br>Size=(N-2)*min(S_1,S_2,S_3,…,S_N)<br>$$<br>同理，数据保护区域容量则为最小容量乘以2。</p>
-<p>RAID 6在硬体磁碟阵列卡的功能中，也是最常见的磁碟阵列等级。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/540px-RAID_6.svg.png" style="zoom:50%;"></div>
-
-<h2 id="混合RAID"><a href="#混合RAID" class="headerlink" title="混合RAID"></a>混合RAID</h2><h3 id="JBOD"><a href="#JBOD" class="headerlink" title="JBOD"></a>JBOD</h3><p>JBOD（ Just a Bunch Of Disks）在分类上，JBOD并不是RAID的等级。由于并没有规范，市场上有两类主流的做法</p>
-<ol>
-<li>使用单独的连结端口如SATA、USB或1394同时控制多个各别独立的硬盘，使用这种模式通常是较高阶的设备，还具备有RAID的功能，不需要依靠JBOD达到合并逻辑磁区的目的。</li>
-<li>只是将多个硬盘空间合并成一个大的逻辑硬盘，没有错误备援机制。</li>
-</ol>
-<p>数据的存放机制是由第一颗硬盘开始依序往后存放，即作业系统看到的是一个大硬盘（由许多小硬盘组成的）。但如果硬盘损毁，则该颗硬盘上的所有数据将无法救回。若第一颗硬盘损坏，通常无法作救援（因为大部分档案系统将磁碟分割表（partition table）存在磁碟前端，即第一颗），失去磁碟分割表即失去一切数据，若遭遇磁碟阵列数据或硬盘出错的状况，危险程度较RAID 0更剧。它的好处是不会像RAID 0，每次存取都要读写全部硬盘。但在部分的JBOD数据恢复实践中，可以恢复未损毁之硬盘上的数据。同时，因为每次读写操作只作用于单一硬盘，JBOD的传输速率与I/O表现均与单颗硬盘无异。<br>$$<br>Size=sum ; of ; all ; discs<br>$$</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/350px-JBOD.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-7"><a href="#RAID-7" class="headerlink" title="RAID 7"></a>RAID 7</h3><p>RAID 7并非公开的RAID标准，而是Storage Computer Corporation的专利硬体产品名称，RAID 7是以RAID 3及RAID 4为基础所发展，但是经过强化以解决原来的一些限制。另外，在实作中使用大量的快取记忆体以及用以实现非同步阵列管理的专用即时处理器，使得RAID 7可以同时处理大量的IO要求，所以效能甚至超越了许多其他RAID标准的实做产品。但也因为如此，在价格方面非常的高昂。</p>
-<h3 id="RAID-10-01"><a href="#RAID-10-01" class="headerlink" title="RAID 10/01"></a>RAID 10/01</h3><p>RAID 10是先分割数据再镜像，再将所有硬盘分为两组，视为以RAID 1作为最低组合，然后将每组RAID 1视为一个“硬盘”组合为RAID 0运作。</p>
-<p>RAID 01则是跟RAID 10的程序相反，是先镜像再将数据到分割两组硬盘。它将所有的硬盘分为两组，每组各自构成为RAID 0作为最低组合，而将两组硬盘组合为RAID 1运作。</p>
-<p>当RAID 10有一个硬盘受损，其馀硬盘会继续运作。RAID 01只要有一个硬盘受损，同组RAID 0的所有硬盘都会停止运作，只剩下其他组的硬盘运作，可靠性较低。如果以六个硬盘建RAID 01，镜像再用三个建RAID 0，那么坏一个硬盘便会有三个硬盘离线。因此，RAID 10远较RAID 01常用，零售主机板绝大部份支援RAID 0/1/5/10，但不支援RAID 01。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/440px-RAID_10.svg.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-50"><a href="#RAID-50" class="headerlink" title="RAID 50"></a>RAID 50</h3><p>RAID 5与RAID 0的组合，先作RAID 5，再作RAID 0，也就是对多组RAID 5彼此构成Stripe存取。由于RAID 50是以RAID 5为基础，而RAID 5至少需要3颗硬盘，因此要以多组RAID 5构成RAID 50，至少需要6颗硬盘。以RAID 50最小的6颗硬盘组态为例，先把6颗硬盘分为2组，每组3颗构成RAID 5，如此就得到两组RAID 5，然后再把两组RAID 5构成RAID 0。</p>
-<p>RAID 50在底层的任一组或多组RAID 5中出现1颗硬盘损坏时，仍能维持运作，不过如果任一组RAID 5中出现2颗或2颗以上硬盘损毁，整组RAID 50就会失效。</p>
-<p>RAID 50由于在上层把多组RAID 5构成Stripe，效能比起单纯的RAID 5高，容量利用率比RAID5要低。比如同样使用9颗硬盘，由各3颗RAID 5再组成RAID 0的RAID 50，每组RAID 5浪费一颗硬盘，利用率为(1-3/9)，RAID 5则为(1-1/9)。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/1000px-RAID_50.png" style="zoom:50%;"></div>
-
-<h3 id="RAID-53"><a href="#RAID-53" class="headerlink" title="RAID 53"></a>RAID 53</h3><p>它拥有一个镜像条带阵列，硬盘里其中一个条带就是一个是由3组以上的RAID 5组成RAID 3硬盘阵列。</p>
-<h3 id="RAID-60"><a href="#RAID-60" class="headerlink" title="RAID 60"></a>RAID 60</h3><p>RAID 6与RAID 0的组合：先作RAID 6，再作RAID 0。换句话说，就是对两组以上的RAID 6作Stripe存取。RAID 6至少需具备4颗硬盘，所以RAID 60的最小需求是8颗硬盘。</p>
-<p>由于底层是以RAID 6组成，所以RAID 60可以容许任一组RAID 6中损毁最多2颗硬盘，而系统仍能维持运作；不过只要底层任一组RAID 6中损毁3颗硬盘，整组RAID 60就会失效，当然这种情况的机率相当低。</p>
-<p>比起单纯的RAID 6，RAID 60的上层透过结合多组RAID 6构成Stripe存取，因此效能较高。不过使用门槛高，而且容量利用率低是较大的问题。</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/Raid_60.jpg" style="zoom:75%;"></div>
-
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>RAID2、3、4较少实际应用，因为RAID0、RAID1、RAID5、RAID6和混合RAID已经涵盖所需的功能，因此RAID2、3、4大多只在研究领域有实作，而实际应用上则以RAID0、RAID1、RAID5、RAID6和混合RAID为主。</p>
-<p>RAID4有应用在某些商用机器上，像是NetApp公司设计的NAS系统就是使用RAID4的设计概念。</p>
-<p>根据实现模式，分为软件和硬件两种：</p>
-<ul>
-<li><p>软体磁碟阵列（Software RAID）：</p>
-<p>主要由CPU处理阵列储存作业，缺点为耗损较多CPU资源运算RAID，优点则是价格偏低。分类有3种：基于主机板的磁碟阵列：只需要主机板支援即可（通常是晶片组内建的RAID功能，如Intel Matrix RAID，Intel Rapid Storage Technology），不需要任何磁碟阵列卡。若主机板损坏，可能难以购买同款主机板重建RAID。硬体辅助磁碟阵列（Hardware-Assisted RAID）：需要一张基于Fake RAID的RAID卡，以及厂商所提供的驱动程式，但此类RAID卡仍然通过CPU进行运算。这款RAID较易迁移到其他电脑。RAID功能靠执行于作业系统的厂商驱动程式和CPU运算提供。作业系统的RAID功能：如<a href="https://www.wikiwand.com/zh-hans/Linux" target="_blank" rel="noopener">Linux</a>、<a href="https://www.wikiwand.com/zh-hans/FreeBSD" target="_blank" rel="noopener">FreeBSD</a>、<a href="https://www.wikiwand.com/zh-hans/Windows_Server" target="_blank" rel="noopener">Windows Server</a>等作业系统内建RAID功能。</p>
-</li>
-<li><p>硬体磁碟阵列（Hardware RAID）</p>
-<p>RAID卡上内建处理器，不需要伺服器的CPU运算。优点是读写效能最快，不占用伺服器资源，可用于任何作业系统，也能在系统断电后，透过备份电池模组（BBU, Backup Battery Unit）以及非挥发性记忆体 (NVRAM)将硬盘读写日志档（Journal）包含的剩馀读写作业先纪录在记忆体中，等待电力供应复原后，再由NVRAM取回日志档数据，接著再完成读写作业，将剩馀读写作业安全完成以确保读写完整性。备份电池模组通常会配合阵列卡的Write-Back快取模式，借由此记忆体快取读写作业以得到更高的读写效能；但是没有备份电池模组的硬体磁碟阵列卡，切勿使用Write-Back快取模式以免遭遇断电情形导致读写数据流失。此外，因为硬体磁碟阵列卡搭载内建处理器，所以可以与作业系统分离出来，对硬盘进行各种作业，还原作业的速度也比软体磁碟阵列快。缺点是其售价很高。</p>
-</li>
-</ul>
-<h2 id="磁碟阵列相关客户类型"><a href="#磁碟阵列相关客户类型" class="headerlink" title="磁碟阵列相关客户类型"></a>磁碟阵列相关客户类型</h2><ul>
-<li>一般消费者备份数据之用、企业建立ERP系统或NAS系统时的重要数据备份。</li>
-<li>影音多媒体数位内容创作公司、个人影音剪辑数位内容工作室。</li>
-<li>数位监控系统（DVR）、网路监控系统（NVR）等等需要大量储存影片的监控系统业者，军方、赌场因为需要大量监控系统也是常见使用磁碟阵列的客户。</li>
-<li>证券、银行等金融行业保管重要客户数据。</li>
-</ul>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@lenswithbenefits?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from tommy boudreau"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">tommy boudreau</span></a></p>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/RAID/" rel="tag">RAID</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/image/alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/image/wechatpay.jpg" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/8b7d2b6d/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">python配置</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/posts/684e7cbb/">
-                <span class="level-item">hexo&amp;icuras配置指南</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        notify: false,
-        verify: false,
-        app_id: '67YP66D1kdqJwPueQ0pGewWc-gzGzoHsz',
-        app_key: 'dBYsXpznvy89hCafAtx0fE4g',
-        placeholder: 'Just go go'
-    });
-</script>
-
-    </div>
-</div>
-</div> -->
-                <!--  -->
                 
 
 
@@ -848,7 +509,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            10
+                            11
                         </p>
                     </a>
                 </div>
@@ -872,7 +533,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            12
+                            14
                         </p>
                     </a>
                 </div>
@@ -1046,7 +707,7 @@
                 <span class="level-item">Tutorials</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li>
             </ul>
@@ -1059,6 +720,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/eec0bc4e/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1571028634586-ae87c1a42432?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=633&amp;q=80" alt="终端利器之zsh篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T06:50:38.000Z">2019-12-16</time></div>
+                    <a href="/posts/eec0bc4e/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之zsh篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1136,25 +816,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/1f364dfa/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/1f364dfa/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RabbitMQ基础概念</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1172,7 +833,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1268,8 +929,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Terminal/">
+                        <span class="tag">Terminal</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Virtualenv/">
                         <span class="tag">Virtualenv</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Zsh/">
+                        <span class="tag">Zsh</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1328,7 +1003,7 @@
                 <span class="level-item">Tutorials</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li>
             </ul>
@@ -1341,6 +1016,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/eec0bc4e/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1571028634586-ae87c1a42432?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=633&amp;q=80" alt="终端利器之zsh篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T06:50:38.000Z">2019-12-16</time></div>
+                    <a href="/posts/eec0bc4e/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之zsh篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1418,25 +1112,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/1f364dfa/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575389468025-4472bf833000?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="RabbitMQ基础概念">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T02:48:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/1f364dfa/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RabbitMQ基础概念</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1454,7 +1129,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1550,8 +1225,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Terminal/">
+                        <span class="tag">Terminal</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Virtualenv/">
                         <span class="tag">Virtualenv</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Zsh/">
+                        <span class="tag">Zsh</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
