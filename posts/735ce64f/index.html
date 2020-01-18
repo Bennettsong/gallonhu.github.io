@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1575072447487-0e58c715568a?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;634&amp;q&#x3D;80">
 <meta property="article:published_time" content="2019-12-16T03:01:42.000Z">
-<meta property="article:modified_time" content="2019-12-18T02:58:22.716Z">
+<meta property="article:modified_time" content="2020-01-18T14:00:13.315Z">
 <meta property="article:author" content="gallon">
 <meta property="article:tag" content="Install">
 <meta name="twitter:card" content="summary">
@@ -194,8 +194,8 @@
 <li>切换时需要防止brain split现象的发生</li>
 </ul>
 <h3 id="Hadoop-HA工作原理图例"><a href="#Hadoop-HA工作原理图例" class="headerlink" title="Hadoop HA工作原理图例"></a>Hadoop HA工作原理图例</h3><h4 id="HDFS的HA架构"><a href="#HDFS的HA架构" class="headerlink" title="HDFS的HA架构"></a>HDFS的HA架构</h4><div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/9d746e6e0c774166bf30f2de0e6c2c72.png" style="zoom:80%;"></div>
+使用 Active NameNode，Standby NameNode 两个结点解决单点问题，两个结点通过JounalNode 共享状态，采用ZKFC选举Active实时监控集群状态，自动进行故障备援。
 
-<p>使用 Active NameNode，Standby NameNode 两个结点解决单点问题，两个结点通过JounalNode 共享状态，采用ZKFC选举Active实时监控集群状态，自动进行故障备援。</p>
 <!-- less -->
 
 <ul>
@@ -205,8 +205,8 @@
 <li>ZKFC：监控NameNode进程，自动备援。</li>
 </ul>
 <h4 id="YARN的HA架构"><a href="#YARN的HA架构" class="headerlink" title="YARN的HA架构"></a>YARN的HA架构</h4><div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/e515121712f648b58cc804e2de8a302c.jpg" style="zoom:80%;"></div>
+ResourceManager HA由一对Active，Standby结点构成，通过RMStateStore 存储内部数据和主要应用的数据及标记。
 
-<p>ResourceManager HA由一对Active，Standby结点构成，通过RMStateStore 存储内部数据和主要应用的数据及标记。</p>
 <p>支持可替代的RMStateStore实现方式如下：</p>
 <ul>
 <li>基于内存的MemoryRMStateStore</li>
@@ -219,8 +219,8 @@
 <li>自动模式：自动模式可降低运维成本并自动切换，但存在潜在危险，如脑裂。</li>
 </ul>
 <div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/bing/hadoop-ha.png" style="zoom:80%;"></div>
+本文将重点介绍下自动模式切换的部署方式。
 
-<p>本文将重点介绍下自动模式切换的部署方式。</p>
 <blockquote>
 <p>什么是脑裂：脑裂是Hadoop2.X版本后出现的全新问题，从字面意思我们可以理解为“大脑分裂”；我们想一下，当一个正常人，突然出现有了两个大脑，而且这两个大脑都有自己的意识，对于这个人来说肯定是灾难性问题。同理，在Hadoop中，为了防止单点失效问题而出现了两个namenode（HA机制），这两个namenode正常情况下是起到一个失效，另一个代替的作用，但在实际运行过程中很有可能出现两个namenode同时服务于整个集群的情况，这种情况称之为脑裂。</p>
 <p>为什么会出现脑裂：脑裂通常发生在主从namenode切换时，由于ActiveNameNode的网络延迟、设备故障等问题，另一个NameNode会认为活跃的NameNode成为失效状态，此时StandbyNameNode会转换成活跃状态，此时集群中将会出现两个活跃的namenode。因此，可能出现的因素有网络延迟、心跳故障、设备故障等。</p>
@@ -347,11 +347,11 @@
 <li>此时一个节点为active状态，另一个处于standby状态。</li>
 <li>在浏览器中打开 <a href="http://sgmaster1:50070" target="_blank" rel="noopener">NamaNode UI</a>、<a href="http://sgmaster1:8088" target="_blank" rel="noopener">Yarn UI</a>，可以产看主节点和备用主节点的状态</li>
 </ul>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-02-at-9.31.46-PM.png" style="zoom:80%;"></div>
+<div align="center"><img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-02-at-9.31.46-PM.png" style="zoom:80%;"></div>
 
 </li>
 </ul>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-02-at-9.41.52-PM.png" style="zoom:80%;"></div>
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-02-at-9.41.52-PM.png" style="zoom:80%;"></div>
 
 <h4 id="HA故障自动切换测试"><a href="#HA故障自动切换测试" class="headerlink" title="HA故障自动切换测试"></a>HA故障自动切换测试</h4><h5 id="主节点—-gt-备用主节点"><a href="#主节点—-gt-备用主节点" class="headerlink" title="主节点—&gt;备用主节点"></a>主节点—&gt;备用主节点</h5><ul>
 <li><p>kill掉主节点的namenode，查看备用主节点的namenode状态是否切换为active；</p>
@@ -392,7 +392,7 @@
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase-daemon.sh start master</span><br></pre></td></tr></table></figure>
 
 <h4 id="HA高可用测试"><a href="#HA高可用测试" class="headerlink" title="HA高可用测试"></a>HA高可用测试</h4><p>在浏览器中打开 <a href="http://sgmaster1:16010" target="_blank" rel="noopener">Web UI</a>，可以查看主节点和备用主节点的状态</p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-02-at-9.56.01-PM.png" style="zoom:80%;"></div>
+<div align="center"><img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-02-at-9.56.01-PM.png" style="zoom:80%;"></div>
 
 <h5 id="主节点—-gt-备用主节点-1"><a href="#主节点—-gt-备用主节点-1" class="headerlink" title="主节点—&gt;备用主节点"></a>主节点—&gt;备用主节点</h5><blockquote>
 <p>  这里的主节点指使用start-hbase.sh命令启动HBase集群的机器</p>
@@ -410,7 +410,7 @@
 <h5 id="在备用主节点启动master进程"><a href="#在备用主节点启动master进程" class="headerlink" title="在备用主节点启动master进程"></a>在备用主节点启动master进程</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-master.sh</span><br></pre></td></tr></table></figure>
 
 <h5 id="web"><a href="#web" class="headerlink" title="web"></a>web</h5><p>浏览器访问 <a href="http://sgmaster1:8001" target="_blank" rel="noopener">Web UI</a></p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-02-at-10.13.18-PM.png" style="zoom:80%;"></div>
+<div align="center"><img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-02-at-10.13.18-PM.png" style="zoom:80%;"></div>
 
 <h5 id="启动全部worker节点"><a href="#启动全部worker节点" class="headerlink" title="启动全部worker节点"></a>启动全部worker节点</h5><p>在ALIVE MASTER节点</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-slaves.sh</span><br></pre></td></tr></table></figure>
@@ -558,7 +558,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -570,7 +570,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -582,7 +582,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            15
+                            14
                         </p>
                     </a>
                 </div>
@@ -775,14 +775,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -801,6 +793,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -859,44 +889,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -914,7 +906,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -977,13 +969,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1078,14 +1063,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -1104,6 +1081,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1162,44 +1177,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1217,7 +1194,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1280,13 +1257,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1361,7 +1331,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 gallon&nbsp;
+                &copy; 2020 gallon&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 

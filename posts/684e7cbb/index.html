@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1576078767295-5d84f7a538fd?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;2734&amp;q&#x3D;80">
 <meta property="article:published_time" content="2019-12-11T03:46:54.000Z">
-<meta property="article:modified_time" content="2019-12-18T01:06:26.520Z">
+<meta property="article:modified_time" content="2020-01-18T13:44:11.557Z">
 <meta property="article:author" content="gallon">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Blog">
@@ -198,10 +198,9 @@
 <p>参见各字段的含义进行配置即可。</p>
 <h3 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h3><h4 id="阅读更多"><a href="#阅读更多" class="headerlink" title="阅读更多"></a>阅读更多</h4><p>在你的文章中添加 <code>&lt;!-- more --&gt;</code> 标签。该标签之前的帖子内容将被标记为摘录，而该标签之后的内容将不会显示在索引页面上。</p>
 <p><strong>效果</strong></p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-9.57.09-AM.jpg" style="zoom:33%;"></div>
-#### 添加缩略图
+<div align="center"><img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-9.57.09-AM.jpg" style="zoom:33%;"></div>
 
-<p>在配置文件中启用缩略图（默认启用）</p>
+<h4 id="添加缩略图"><a href="#添加缩略图" class="headerlink" title="添加缩略图"></a>添加缩略图</h4><p>在配置文件中启用缩略图（默认启用）</p>
 <figure class="highlight yaml hljs"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">article:</span></span><br><span class="line">    <span class="hljs-attr">thumbnail:</span> <span class="hljs-literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>然后，在文章的开头提供URL或图像文件的路径</p>
@@ -216,30 +215,26 @@
 
 <p>另外，建议你将所有图片放在 <code>_posts</code> 文件夹中的 <code>asset</code> 文件夹下。</p>
 <p><strong>效果图</strong></p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-10.52.32-AM.png" style="zoom:33%;"></div>
-#### 添加目录
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-10.52.32-AM.png" style="zoom:33%;"></div>
 
-<p>在配置文件中启用目录（默认启用）</p>
+<h4 id="添加目录"><a href="#添加目录" class="headerlink" title="添加目录"></a>添加目录</h4><p>在配置文件中启用目录（默认启用）</p>
 <figure class="highlight yaml hljs"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">widgets:</span></span><br><span class="line">    <span class="hljs-bullet">-</span></span><br><span class="line">        <span class="hljs-attr">type:</span> <span class="hljs-string">toc</span></span><br><span class="line">        <span class="hljs-attr">position:</span> <span class="hljs-string">left</span></span><br></pre></td></tr></table></figure>
 
 <p>然后，在文章的开头添加<code>toc: true</code></p>
 <figure class="highlight markdown hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: Table of Contents Example</span><br><span class="line">toc: true</span><br><span class="line">---</span><br><span class="line">Post content...</span><br></pre></td></tr></table></figure>
 
 <p><strong>效果</strong></p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-11.01.24-AM.png" style="zoom:33%;"></div>
-## 插件篇
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-11.01.24-AM.png" style="zoom:33%;"></div>
 
-<h3 id="主题内置插件"><a href="#主题内置插件" class="headerlink" title="主题内置插件"></a>主题内置插件</h3><h4 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h4><p><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/categories/Plugins/Comment/" target="_blank" rel="noopener">内置评论插件</a> 官方配置文档，我使用的是 <code>valine</code></p>
+<h2 id="插件篇"><a href="#插件篇" class="headerlink" title="插件篇"></a>插件篇</h2><h3 id="主题内置插件"><a href="#主题内置插件" class="headerlink" title="主题内置插件"></a>主题内置插件</h3><h4 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h4><p><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/categories/Plugins/Comment/" target="_blank" rel="noopener">内置评论插件</a> 官方配置文档，我使用的是 <code>valine</code></p>
 <p>效果</p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-3.46.21-PM.png" style="zoom:33%;"></div>
-#### 打赏
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-3.46.21-PM.png" style="zoom:33%;"></div>
 
-<p><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/Plugins/Donation/making-money-off-your-blog-with-donation-buttons/#more" target="_blank" rel="noopener">官方配置文档</a></p>
+<h4 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h4><p><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/Plugins/Donation/making-money-off-your-blog-with-donation-buttons/#more" target="_blank" rel="noopener">官方配置文档</a></p>
 <p><strong>效果</strong></p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-4.44.39-PM.png" style="zoom:33%;"></div>
-### 其他插件
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-4.44.39-PM.png" style="zoom:33%;"></div>
 
-<p>在博客的站点目录下安装插件。</p>
+<h3 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h3><p>在博客的站点目录下安装插件。</p>
 <h4 id="hexo-abbrlink"><a href="#hexo-abbrlink" class="headerlink" title="hexo-abbrlink"></a><a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">hexo-abbrlink</a></h4><p><em>hexo</em> 默认的永久链接生成方案是 <code>年/月/日/标题</code>。这样一来，链接不但很长，而且，如果你是中文用户，生成的链接中还将包含中文，这无疑会留下很多麻烦。</p>
 <p><strong>安装</strong></p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
@@ -269,10 +264,9 @@
 <figure class="highlight yaml hljs"><figcaption><span>_config.yml </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">RSS:</span></span><br><span class="line">	<span class="hljs-attr">icon:</span> <span class="hljs-string">fas</span> <span class="hljs-string">fa-rss</span></span><br><span class="line">	<span class="hljs-attr">url:</span> <span class="hljs-string">/atom.xml</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>效果</strong></p>
-<div align="center"><img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-11-at-8.05.40-PM.png" style="zoom:33%;"></div>
-#### [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
+<div align="center"><img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-11-at-8.05.40-PM.png" style="zoom:33%;"></div>
 
-<p>如果你使用 <code>git</code> 部署博客的话，需要安装此插件。</p>
+<h4 id="hexo-deployer-git"><a href="#hexo-deployer-git" class="headerlink" title="hexo-deployer-git"></a><a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a></h4><p>如果你使用 <code>git</code> 部署博客的话，需要安装此插件。</p>
 <p><strong>安装</strong></p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
@@ -289,10 +283,9 @@
 <figure class="highlight yaml hljs"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">share:</span></span><br><span class="line">    <span class="hljs-attr">type:</span> <span class="hljs-string">sharejs</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>效果</strong></p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-13-at-8.11.34-PM.png" style="zoom:33%;"></div>
-## 脚本篇
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-13-at-8.11.34-PM.png" style="zoom:33%;"></div>
 
-<p>在博客站点目录下新建文件夹 <code>scripts</code>，所有的脚本都放在此目录下。</p>
+<h2 id="脚本篇"><a href="#脚本篇" class="headerlink" title="脚本篇"></a>脚本篇</h2><p>在博客站点目录下新建文件夹 <code>scripts</code>，所有的脚本都放在此目录下。</p>
 <h3 id="新建博客自动打开"><a href="#新建博客自动打开" class="headerlink" title="新建博客自动打开"></a>新建博客自动打开</h3><p>当你使用 <code>hexo new</code> 新建一篇博客时将自动打开<em>markdown</em>编辑器</p>
 <p>新建 <code>trigger.js</code> 脚本，内容如下</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> exec = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child_process'</span>).exec;</span><br><span class="line">hexo.on(<span class="hljs-string">'new'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;</span><br><span class="line">    exec(<span class="hljs-string">'open -a "your/app/path" '</span> + data.path);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -357,9 +350,9 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/61128e07/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/8b7d2b6d/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">RAID</span>
+                <span class="level-item">python配置</span>
             </a>
         </div>
         
@@ -434,7 +427,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -446,7 +439,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -458,7 +451,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            15
+                            14
                         </p>
                     </a>
                 </div>
@@ -524,29 +517,57 @@
         <a class="is-flex" href="#阅读更多">
         <span class="has-mr-6">1.2.1</span>
         <span>阅读更多</span>
-        </a></li></ul></li><li>
+        </a></li><li>
+        <a class="is-flex" href="#添加缩略图">
+        <span class="has-mr-6">1.2.2</span>
+        <span>添加缩略图</span>
+        </a></li><li>
+        <a class="is-flex" href="#添加目录">
+        <span class="has-mr-6">1.2.3</span>
+        <span>添加目录</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#插件篇">
+        <span class="has-mr-6">2</span>
+        <span>插件篇</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#主题内置插件">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">2.1</span>
         <span>主题内置插件</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#评论">
-        <span class="has-mr-6">1.3.1</span>
+        <span class="has-mr-6">2.1.1</span>
         <span>评论</span>
         </a></li><li>
+        <a class="is-flex" href="#打赏">
+        <span class="has-mr-6">2.1.2</span>
+        <span>打赏</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#其他插件">
+        <span class="has-mr-6">2.2</span>
+        <span>其他插件</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#hexo-abbrlink">
-        <span class="has-mr-6">1.3.2</span>
+        <span class="has-mr-6">2.2.1</span>
         <span>hexo-abbrlink</span>
         </a></li><li>
         <a class="is-flex" href="#hexo-generator-feed">
-        <span class="has-mr-6">1.3.3</span>
+        <span class="has-mr-6">2.2.2</span>
         <span>hexo-generator-feed</span>
         </a></li><li>
+        <a class="is-flex" href="#hexo-deployer-git">
+        <span class="has-mr-6">2.2.3</span>
+        <span>hexo-deployer-git</span>
+        </a></li><li>
         <a class="is-flex" href="#sharejs">
-        <span class="has-mr-6">1.3.4</span>
+        <span class="has-mr-6">2.2.4</span>
         <span>sharejs</span>
-        </a></li></ul></li><li>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#脚本篇">
+        <span class="has-mr-6">3</span>
+        <span>脚本篇</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#新建博客自动打开">
-        <span class="has-mr-6">1.4</span>
+        <span class="has-mr-6">3.1</span>
         <span>新建博客自动打开</span>
         </a></li></ul></li></ul>
             </div>
@@ -583,14 +604,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -609,6 +622,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -667,44 +718,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -722,7 +735,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -785,13 +798,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -886,14 +892,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -912,6 +910,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -970,44 +1006,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1025,7 +1023,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1088,13 +1086,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1169,7 +1160,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 gallon&nbsp;
+                &copy; 2020 gallon&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 

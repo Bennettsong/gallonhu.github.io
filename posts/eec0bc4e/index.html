@@ -19,10 +19,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1571028634586-ae87c1a42432?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;633&amp;q&#x3D;80">
 <meta property="article:published_time" content="2019-12-16T06:50:38.000Z">
-<meta property="article:modified_time" content="2019-12-18T01:03:49.629Z">
+<meta property="article:modified_time" content="2020-01-18T13:33:53.475Z">
 <meta property="article:author" content="gallon">
-<meta property="article:tag" content="Terminal">
 <meta property="article:tag" content="Zsh">
+<meta property="article:tag" content="Terminal">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1571028634586-ae87c1a42432?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;633&amp;q&#x3D;80">
 
@@ -175,10 +175,9 @@
 <a id="more"></a>
 
 <p>先放一张效果图</p>
-<div align="center"><img src="   http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-3.27.32-PM.png" style="zoom:75%;"></div>
-## 安装
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-3.27.32-PM.png" style="zoom:75%;"></div>
 
-<h3 id="zsh安装"><a href="#zsh安装" class="headerlink" title="zsh安装"></a>zsh安装</h3><p><em>Macos</em> 默认安装了 <code>zsh</code>，以下为 <em>centos</em> 安装的命令</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="zsh安装"><a href="#zsh安装" class="headerlink" title="zsh安装"></a>zsh安装</h3><p><em>Macos</em> 默认安装了 <code>zsh</code>，以下为 <em>centos</em> 安装的命令</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yjm install zsh</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用户默认使用 zsh</span></span><br><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="oh-my-zsh安装"><a href="#oh-my-zsh安装" class="headerlink" title="oh-my-zsh安装"></a>oh-my-zsh安装</h3><p><code>zsh</code> 本体有着强大的功能，但碍于其复杂的配置，对普通用户而言并不太适合。但是，一个开源项目的出现打破了这一局面 —— 它就是本文的主角：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">Oh My Zsh</a>。借助 Oh My Zsh，你只需要进行极为简单的安装配置，就可以用上 <code>zsh</code>，并享受许多酷炫的功能，它的安装也很简单。</p>
@@ -216,9 +215,9 @@
 <p><code>zsh</code>有很多 <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">内置主题</a> 和 <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes" target="_blank" rel="noopener">第三方主题</a>，大家可以参考链接给的官方文档挑选喜欢的。</p>
 <p>下面介绍的是我使用的主题 <a href="https://github.com/denysdovhan/spaceship-prompt" target="_blank" rel="noopener">spaceship</a> 的配置。</p>
 <p>首先看一下配置完成的效果</p>
-<div align="center"><img src="   http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-5.24.26-PM.2019-12-16-18_28_37.gif" style="zoom:75%;"></div>
-关于这个主题的更多特性，想要了解更多的可以去官方了解。
+<div align="center"><img src="   https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-5.24.26-PM.2019-12-16-18_28_37.gif" style="zoom:75%;"></div>
 
+<p>关于这个主题的更多特性，想要了解更多的可以去官方了解。</p>
 <p><strong>安装</strong></p>
 <p>先 <code>clone</code> 主题</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"</span><br></pre></td></tr></table></figure>
@@ -231,7 +230,7 @@
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> <span class="hljs-built_in">clone</span></span></span><br><span class="line">git clone https://github.com/powerline/fonts.git --depth=1</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> install</span></span><br><span class="line">cd fonts</span><br><span class="line">./install.sh</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> clean-up a bit</span></span><br><span class="line">cd ..</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
 
 <p>再在你使用的终端中选择需要的字体，这里以 <code>iterm2</code> 为例。打开 <code>Preferences-&gt;Profiles-&gt;Text-&gt;Change Font</code> 选择字体，我这里使用的是 <code>SauceCodePro Nerd Font</code>。</p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-7.04.31-PM.png" style="zoom:75%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-7.04.31-PM.png" style="zoom:75%;">
 
 <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>接下来是关于我使用的插件，主要分为内置插件和三方插件。</p>
 <p>插件的配置在 <code>.zshrc</code> 中</p>
@@ -245,19 +244,19 @@
 <p>这里就不一一列举了，感兴趣的可以自行查看 <code>.oh-my-zsh/plugins/git/README.md</code>。 </p>
 <h4 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h4><p>通过按两下 <code>esc</code> 自动添加 <code>sudo</code> 前缀。</p>
 <p><strong>效果</strong>  </p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-9.08.47-PM.2019-12-16-21_12_21.gif" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-9.08.47-PM.2019-12-16-21_12_21.gif" style="zoom:80%;">
 
 <h4 id="z"><a href="#z" class="headerlink" title="z"></a>z</h4><p>快速跳转，谁用谁知道。</p>
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-9.16.23-PM.2019-12-16-21_22_52.gif" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-9.16.23-PM.2019-12-16-21_22_52.gif" style="zoom:80%;">
 
 <h4 id="extract"><a href="#extract" class="headerlink" title="extract"></a>extract</h4><p>不用记那么多解压参数，一键解压，无脑操作。</p>
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-9.19.55-PM.2019-12-16-21_23_54.gif" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-9.19.55-PM.2019-12-16-21_23_54.gif" style="zoom:80%;">
 
 <h4 id="web-search"><a href="#web-search" class="headerlink" title="web-search"></a>web-search</h4><p>终端打开浏览器搜索。</p>
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-9.21.17-PM.2019-12-16-21_25_01.gif" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2019-12-16-at-9.21.17-PM.2019-12-16-21_25_01.gif" style="zoom:80%;">
 
 <h3 id="三方插件"><a href="#三方插件" class="headerlink" title="三方插件"></a>三方插件</h3><h4 id="git-open"><a href="#git-open" class="headerlink" title="git-open"></a><a href="https://github.com/paulirish/git-open" target="_blank" rel="noopener">git-open</a></h4><p>快速打开 <code>git</code> 仓库。</p>
 <p><strong>安装</strong></p>
@@ -268,7 +267,7 @@
 <figure class="highlight shell hljs"><figcaption><span>.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias Go="git-open"</span><br></pre></td></tr></table></figure>
 
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/2019-12-16 20_16_12.gif" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/2019-12-16-20_16_12.gif" style="zoom:80%;">
 
 <h4 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a><a href="https://github.com/valentinocossar/vscode" target="_blank" rel="noopener">vscode</a></h4><p>在终端中使用 <code>vscode</code> 打开文件。</p>
 <p><strong>安装</strong></p>
@@ -287,7 +286,7 @@
 <p><code>vst</code>：打开当前目录</p>
 <p>随笔你组合。</p>
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/Screen-Shot-2019-12-16-at-8.32.56-PM.2019-12-16-20_34_36.gif" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot//Screen-Shot-2019-12-16-at-8.32.56-PM.2019-12-16-20_34_36.gif" style="zoom:80%;">
 
 <h4 id="waketime"><a href="#waketime" class="headerlink" title="waketime"></a><a href="https://github.com/sobolevn/wakatime-zsh-plugin" target="_blank" rel="noopener">waketime</a></h4><p><code>waketime</code> 可以记录你的使用时长，同时还会记录你具体在那个项目上花了多少时间，最后还能分析你的使用习惯等待。当然，它基本在各个平台都有自己的插件。</p>
 <p>想要使用这个插件，首先，你要去 <a href="https://wakatime.com/" target="_blank" rel="noopener">waketime官网</a> 申请一个账号，然后获取自己的密钥，然后再写入配置文件中。具体的操作流程，有需要或者兴趣的可以自行解决，官网或者百度都有教程，这里就不细说。</p>
@@ -296,7 +295,7 @@
 
 <p>配置文件中插件下添加 <code>waketime</code> 。</p>
 <p><strong>效果</strong></p>
-<img src=" http://q1i38chc1.bkt.clouddn.com/screen/screencapture-wakatime-dashboard-2019-12-16-20_44_07.png" style="zoom:80%;">
+<img src=" https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/screencapture-wakatime-dashboard-2019-12-16-20_44_07.png" style="zoom:80%;">
 
 <h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></h4><p>自动提示，五星好评，居家必备。</p>
 <p><strong>安装</strong></p>
@@ -453,7 +452,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -465,7 +464,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -477,7 +476,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            15
+                            14
                         </p>
                     </a>
                 </div>
@@ -527,7 +526,11 @@
                 <h3 class="menu-label">
                     目录
                 </h3>
-                <ul class="menu-list"><ul class="menu-list"><li>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#安装">
+        <span class="has-mr-6">1</span>
+        <span>安装</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#zsh安装">
         <span class="has-mr-6">1.1</span>
         <span>zsh安装</span>
@@ -535,7 +538,7 @@
         <a class="is-flex" href="#oh-my-zsh安装">
         <span class="has-mr-6">1.2</span>
         <span>oh-my-zsh安装</span>
-        </a></li></ul><li>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#配置">
         <span class="has-mr-6">2</span>
         <span>配置</span>
@@ -646,14 +649,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -672,6 +667,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -730,44 +763,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -785,7 +780,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -848,13 +843,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -949,14 +937,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -975,6 +955,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1033,44 +1051,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1088,7 +1068,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1151,13 +1131,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1232,7 +1205,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 gallon&nbsp;
+                &copy; 2020 gallon&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 

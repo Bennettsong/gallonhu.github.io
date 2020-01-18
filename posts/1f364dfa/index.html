@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1575389468025-4472bf833000?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1050&amp;q&#x3D;80">
 <meta property="article:published_time" content="2019-12-16T02:48:42.000Z">
-<meta property="article:modified_time" content="2019-12-16T03:04:17.443Z">
+<meta property="article:modified_time" content="2020-01-18T13:39:58.768Z">
 <meta property="article:author" content="gallon">
 <meta property="article:tag" content="RabbitMQ">
 <meta name="twitter:card" content="summary">
@@ -180,11 +180,10 @@
 <p>RabbitMQ轻量级，易于在内部和云中部署。它支持多种消息传递协议。RabbitMQ部署在分布式和集群中，以满足高规模，高可用性要求。</p>
 <p>RabbitMQ可运行在多数操作系统和云平台中，并为大多数流行的语言提供各种开发工具。</p>
 <h2 id="RabbitMQ中的概念模型"><a href="#RabbitMQ中的概念模型" class="headerlink" title="RabbitMQ中的概念模型"></a>RabbitMQ中的概念模型</h2><h3 id="消息模型"><a href="#消息模型" class="headerlink" title="消息模型"></a>消息模型</h3><p>所有 MQ 产品从模型抽象上来说都是一样的过程：<br>消费者（consumer）订阅某个队列。生产者（producer）创建消息，然后发布到队列（queue）中，最后将消息发送到监听的消费者。</p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/python-one-overall.png" style="zoom:100%;"></div>
-
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/python-one-overall.png" style="zoom:100%;"></div>
 
 <h3 id="RabbitMQ-基本概念"><a href="#RabbitMQ-基本概念" class="headerlink" title="RabbitMQ 基本概念"></a>RabbitMQ 基本概念</h3><p>上面只是最简单抽象的描述，具体到 RabbitMQ 则有更详细的概念需要解释。上面介绍过 RabbitMQ 是 AMQP 协议的一个开源实现，所以其内部实际上也是 AMQP 中的基本概念：</p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/auto-orient.png" style="zoom:75%;"></div>
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/auto-orient.png" style="zoom:75%;"></div>
 
 <ol>
 <li>Message<br> 消息，消息是不具名的，它由消息头和消息体组成。消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括routing-key（路由键）、priority（相对于其他消息的优先权）、delivery-mode（指出该消息可能需要持久性存储）等。</li>
@@ -199,26 +198,25 @@
 <li>Broker<br>表示消息队列服务器实体。</li>
 </ol>
 <h3 id="AMQP-中的消息路由"><a href="#AMQP-中的消息路由" class="headerlink" title="AMQP 中的消息路由"></a>AMQP 中的消息路由</h3><p>AMQP 中消息的路由过程和 Java 开发者熟悉的 JMS 存在一些差别，AMQP 中增加了 Exchange 和 Binding 的角色。生产者把消息发布到 Exchange 上，消息最终到达队列并被消费者接收，而 Binding 决定交换器的消息应该发送到那个队列。</p>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/auto-orient-20190331180852379.png" style="zoom:75%;"></div>
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/auto-orient-20190331180852379.png" style="zoom:75%;"></div>
 
 <h4 id="Exchange的类型"><a href="#Exchange的类型" class="headerlink" title="Exchange的类型"></a>Exchange的类型</h4><p>Exchange分发消息时根据类型的不同分发策略有区别，目前共四种类型：direct、fanout、topic、headers 。headers 匹配 AMQP 消息的 header 而不是路由键，此外 headers 交换器和 direct 交换器完全一致，但性能差很多，目前几乎用不到了，所以直接看另外三种类型：</p>
 <ol>
 <li>direct</li>
 </ol>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/auto-orient-20190331180955160.png" style="zoom:75%;"></div>
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/auto-orient-20190331180955160.png" style="zoom:75%;"></div>
 
 <p>消息中的路由键（routing key）如果和 Binding 中的 binding key 一致， 交换器就将消息发到对应的队列中。路由键与队列名完全匹配，如果一个队列绑定到交换机要求路由键为“dog”，则只转发 routing key 标记为“dog”的消息，不会转发“dog.puppy”，也不会转发“dog.guard”等等。它是完全匹配、单播的模式。</p>
 <ol start="2">
 <li>fanout</li>
 </ol>
-<div align="center"><img src="  http://q1i38chc1.bkt.clouddn.com/screen/auto-orient-20190331181057327.png" style="zoom:75%;"></div>
+<div align="center"><img src="  https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/auto-orient-20190331181057327.png" style="zoom:75%;"></div>
 
 <p>每个发到 fanout 类型交换器的消息都会分到所有绑定的队列上去。fanout 交换器不处理路由键，只是简单的将队列绑定到交换器上，每个发送到交换器的消息都会被转发到与该交换器绑定的所有队列上。很像子网广播，每台子网内的主机都获得了一份复制的消息。fanout 类型转发消息是最快的。</p>
 <ol start="3">
 <li>topic</li>
 </ol>
-<div align="center"><img src="   http://q1i38chc1.bkt.clouddn.com/screen/auto-orient-20190331181122950.png" style="zoom:75%;"></div>
-
+<div align="center"><img src="   https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/auto-orient-20190331181122950.png" style="zoom:75%;"></div>
 
 
 <p> topic 交换器通过模式匹配分配消息的路由键属性，将路由键和某个模式进行匹配，此时队列需要绑定到一个模式上。它将路由键和绑定键的字符串切分成单词，这些单词之间用点隔开。它同样也会识别两个通配符：符号“#”和符号“*”。#匹配0个或多个单词，*匹配不多不少一个单词。</p>
@@ -365,7 +363,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -377,7 +375,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            4
+                            3
                         </p>
                     </a>
                 </div>
@@ -389,7 +387,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            15
+                            14
                         </p>
                     </a>
                 </div>
@@ -510,14 +508,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -536,6 +526,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -594,44 +622,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -649,7 +639,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -712,13 +702,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -813,14 +796,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Others/">
-            <span class="level-start">
-                <span class="level-item">Others</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
             <span class="level-start">
                 <span class="level-item">Tutorials</span>
@@ -839,6 +814,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/fbcc746f/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工具篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T02:00:14.000Z">2019-12-26</time></div>
+                    <a href="/posts/fbcc746f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工具篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/7309d80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="终端利器之tmux篇">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-26T01:59:04.000Z">2019-12-26</time></div>
+                    <a href="/posts/7309d80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">终端利器之tmux篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -897,44 +910,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/87856f92/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576380441718-1f3ba292961f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="Centos-NTP">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:16:08.000Z">2019-12-16</time></div>
-                    <a href="/posts/87856f92/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Centos-NTP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/posts/735ce64f/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1575072447487-0e58c715568a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="HA高可用集群搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:01:42.000Z">2019-12-16</time></div>
-                    <a href="/posts/735ce64f/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HA高可用集群搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -952,7 +927,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1015,13 +990,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/RAID/">
-                        <span class="tag">RAID</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1096,7 +1064,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 gallon&nbsp;
+                &copy; 2020 gallon&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 
