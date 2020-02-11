@@ -10,16 +10,16 @@
 <title>终端利器之vim篇 - Gallon</title>
 
 
-    <meta name="description" content="接上一篇 第一眼看到的就是你，最后一眼看到的也是你 unsplash-logoM.Fildza Fadzil">
+    <meta name="description" content="基本上，只要你使用过终端，多多少少应该都接触过 vim，但对大多数的新手来说，vim 的体验感绝对算不上好，甚至可以用糟糕来形容。但事实上，大部分人都没能体会到 vim 的牛逼之处就早早的放弃了，所以我们接上一篇，这次好好讲一讲 vim 的使用。 首先，vim 是什么？本质上来讲，vim 只是一个编译器，只不过以下的几个特性让它变得不可思议：  几乎在所有平台、ide 都内置 高度可定制化（包括大">
 <meta property="og:type" content="article">
 <meta property="og:title" content="终端利器之vim篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;gallonhu.github.io&#x2F;posts&#x2F;848c0324&#x2F;index.html">
 <meta property="og:site_name" content="Gallon">
-<meta property="og:description" content="接上一篇 第一眼看到的就是你，最后一眼看到的也是你 unsplash-logoM.Fildza Fadzil">
+<meta property="og:description" content="基本上，只要你使用过终端，多多少少应该都接触过 vim，但对大多数的新手来说，vim 的体验感绝对算不上好，甚至可以用糟糕来形容。但事实上，大部分人都没能体会到 vim 的牛逼之处就早早的放弃了，所以我们接上一篇，这次好好讲一讲 vim 的使用。 首先，vim 是什么？本质上来讲，vim 只是一个编译器，只不过以下的几个特性让它变得不可思议：  几乎在所有平台、ide 都内置 高度可定制化（包括大">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;images.unsplash.com&#x2F;photo-1537311597144-e497bdef2ca8?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1267&amp;q&#x3D;80">
 <meta property="article:published_time" content="2019-12-17T11:14:34.000Z">
-<meta property="article:modified_time" content="2019-12-17T12:16:11.876Z">
+<meta property="article:modified_time" content="2020-01-23T02:48:24.443Z">
 <meta property="article:author" content="gallon">
 <meta property="article:tag" content="Terminal">
 <meta property="article:tag" content="Vim">
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 34 个字)
+                    6 分钟 读完 (大约 922 个字)
                 </span>
                 
                 
@@ -170,9 +170,33 @@
             
         </h1>
         <div class="content">
-            <p>接<a href="https://gallonhu.github.io/posts/848c0324/">上一篇</a></p>
-<p>第一眼看到的就是你，最后一眼看到的也是你</p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mfildzafadzil?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from M.Fildza Fadzil"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">M.Fildza Fadzil</span></a></p>
+            <p>基本上，只要你使用过终端，多多少少应该都接触过 vim，但对大多数的新手来说，vim 的体验感绝对算不上好，甚至可以用糟糕来形容。但事实上，大部分人都没能体会到 vim 的牛逼之处就早早的放弃了，所以我们接<a href="https://gallonhu.github.io/posts/848c0324/">上一篇</a>，这次好好讲一讲 <code>vim</code> 的使用。</p>
+<p>首先，vim 是什么？本质上来讲，vim 只是一个编译器，只不过以下的几个特性让它变得不可思议：</p>
+<ol>
+<li>几乎在所有平台、ide 都内置</li>
+<li>高度可定制化（包括大量的插件）</li>
+<li>支持所有的编程语言</li>
+</ol>
+<p>老规矩，文章分为三部分：安装、配置和插件。</p>
+<p>先放效果图</p>
+<img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2020-01-19-at-10.34.45-AM.png" style="zoom:80%;">
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>对于几乎所有的 <code>Linux</code> 或者 <code>Unix</code> 系统，都内置安装了 vim，这里就不过多的介绍 vim 了，我们主要来介绍基于 vim 开发的另外一个东西——<a href="https://github.com/neovim/neovim" target="_blank" rel="noopener">neovim</a>，至于我为什么使用 neovim，主要是以下几点</p>
+<h3 id="全面并发"><a href="#全面并发" class="headerlink" title="全面并发"></a>全面并发</h3><p>虽说 vim 8 也开始支持了，但这当初应该是被 neovim 倒逼出来的。</p>
+<h3 id="默认配置更加友好"><a href="#默认配置更加友好" class="headerlink" title="默认配置更加友好"></a>默认配置更加友好</h3><p>说起来 vim 的一些过时默认配置会让你大吃一惊，比如它默认的 encoding 至今依然是 <code>latin1</code> ！neovim 当然早改用 <code>utf-8</code> 了。还有<a href="https://neovim.io/doc/user/vim_diff.html#nvim-defaults" target="_blank" rel="noopener">一些不合时宜的默认 setting 也纷纷得到了修改</a>，免去用户手动配置之苦，我就在迁移原 <code>.vimrc</code> 时删去了 25 行多，净化完毕，更加极简！</p>
+<h3 id="充分遵循-XDG-规范"><a href="#充分遵循-XDG-规范" class="headerlink" title="充分遵循 XDG 规范"></a>充分遵循 XDG 规范</h3><p>vim 默认的 <code>.vimrc</code> 和 <code>.vim</code> 均一般在 <code>$HOME</code> 下，neovim 则全挪为 <code>$XDG_CONFIG_HOME/nvim/init.vim</code> 和 <code>$XDG_CONFIG_HOME/nvim</code>.</p>
+<p>vim 编辑文件时，可以有多达四个的数据文件：<code>backup</code>, <code>swapfile</code>, <code>undofile</code> 和 <code>viminfo</code>. Unix 下的 vim 分别默认存在 <code>&quot;.,~/tmp,~/&quot;</code>, <code>&quot;.,~/tmp,/var/tmp,/tmp&quot;</code>, <code>&quot;.&quot;</code>, 其中 <code>viminfo</code> 的具体储存位置我一时还查不出来，就懒得深究了。后来得知：undofile 默认没有值，不保存撤销记录，viminfo 位于用户目录。</p>
+<p>neovim 则全改储存在 <code>$XDG_DATA_HOME/nvim/</code> 下各自的目录里，此外 viminfo 更是被抛弃，被叫 ShaDa 且更为先进的二进制文件所代替，后者位于 <code>$XDG_DATA_HOME/nvim/shada/main.shada</code>。</p>
+<p>再加上用户自行安装的 neovim 二进制包也在 <code>$HOME/.local/bin</code> 里，一家人更加整整齐齐。</p>
+<p>至于如何安装，请自行解决。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>我的配置目录如下</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">~/.config/nvim</span><br><span class="line">➜ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── autoload</span><br><span class="line">│   └── functions.vim</span><br><span class="line">├── colors</span><br><span class="line">│   ├── NeoSolarized.vim</span><br><span class="line">│   └── solarized.vim</span><br><span class="line">├── init.vim</span><br><span class="line">└── rc</span><br><span class="line">    ├── 01.settings.vim</span><br><span class="line">    ├── 02.plugin.vim</span><br><span class="line">    ├── 03.airline.vim</span><br><span class="line">    ├── 04.tabs.vim</span><br><span class="line">    ├── 05.dev.vim</span><br><span class="line">    ├── 06.tagbar.vim</span><br><span class="line">    ├── 07.ctrlp.vim</span><br><span class="line">    ├── 08.fzf.vim</span><br><span class="line">    ├── 09.nerdtree.vim</span><br><span class="line">    └── 10.startify.vim</span><br></pre></td></tr></table></figure>
+
+<p>刚安装时，默认的配置文件只有 <code>init.vim</code>，neovim 默认会加载它。这里我们先看看我的配置</p>
+<figure class="highlight shell hljs"><figcaption><span>init.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for f in split(glob('~/.config/nvim/rc/*.vim'), '\n')</span><br><span class="line">    exe 'source' f</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+
+<p>其实，思路很简单，真正的配置都放在 <code>rc</code> 目录下，这样做的目的是使配置文件更加的清晰简单，大概就是分为基础配置，插件安装，插件配置三大块，大家根据名字应该能很容易的理解</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mfildzafadzil?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from M.Fildza Fadzil"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">M.Fildza Fadzil</span></a></p>
 
         </div>
         
@@ -315,7 +339,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            13
+                            14
                         </p>
                     </a>
                 </div>
@@ -339,7 +363,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -383,6 +407,41 @@
     
         
 
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#安装">
+        <span class="has-mr-6">1</span>
+        <span>安装</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#全面并发">
+        <span class="has-mr-6">1.1</span>
+        <span>全面并发</span>
+        </a></li><li>
+        <a class="is-flex" href="#默认配置更加友好">
+        <span class="has-mr-6">1.2</span>
+        <span>默认配置更加友好</span>
+        </a></li><li>
+        <a class="is-flex" href="#充分遵循-XDG-规范">
+        <span class="has-mr-6">1.3</span>
+        <span>充分遵循 XDG 规范</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#配置">
+        <span class="has-mr-6">2</span>
+        <span>配置</span>
+        </a></li><li>
+        <a class="is-flex" href="#插件">
+        <span class="has-mr-6">3</span>
+        <span>插件</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
 
     
     
@@ -410,7 +469,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -431,6 +490,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -508,25 +586,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -537,6 +596,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -561,6 +631,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">
@@ -698,7 +775,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -719,6 +796,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -796,25 +892,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -825,6 +902,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -849,6 +937,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">

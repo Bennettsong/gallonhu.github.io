@@ -124,6 +124,67 @@
 <div class="card">
     
     <div class="card-image">
+        <a href="/posts/8509da34/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1576344069300-e4273f6dfdf8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="spark基本概念">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T02:43:38.000Z">2019-12-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 小时 读完 (大约 11052 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/8509da34/">spark基本概念</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="RDD-Programming-Guide"><a href="#RDD-Programming-Guide" class="headerlink" title="RDD Programming Guide"></a>RDD Programming Guide</h1><p>翻译自<a href="http://spark.apache.org/docs/latest/rdd-programming-guide.html" target="_blank" rel="noopener">官方文档</a>，本文值翻译了部分 Python 部分。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从高层次看，每个 Spark 应用都包含一个驱动程序，用于执行用户的 main 函数以及在集群上进行各种并行操作。Spark 提供的重要抽象是弹性分布式数据集（ <em>resilient distributed dataset</em>），这是一个包含诸多元素、被划分到不同节点上进行并行处理的数据集。RDDs 通过打开一个 HDFS 文件（或者其他任何 hadoop 支持的文件系统）、在驱动程序中打开一个已有的 Scala 数据集或者由其他 RDD 转换得到。用户可以要求 Spark 将 RDD 持久化到内存中，这样可以有效的在并行运算中复用。另外，RDDs 在节点发生错误时会自动恢复。</p>
+<p>Spark 的另一个抽象是在并行运算中使用的共享变量。在默认情况下，当 Spark 将一个函数转化成许多任务在不同节点上运行的时候，对于所有在函数中使用的变量，每一个任务都会得到一个副本。有时，一个变量需要在任务之间或者任务和驱动程序之间共享。Spark 支持两种共享变量：广播变量，用来将一个值缓存到所有节点的内存中；累加器，只能用于累加，比如计数器和求和。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/8509da34/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/posts/5df87593/" class="image is-7by1">
             <img class="thumbnail" src="https://images.unsplash.com/photo-1576413168154-035c50dae982?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="markdown基本操作">
         </a>
@@ -143,7 +204,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2039 个字)
+                    14 分钟 读完 (大约 2043 个字)
                 </span>
                 
                 
@@ -366,7 +427,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            13
+                            14
                         </p>
                     </a>
                 </div>
@@ -390,7 +451,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -459,7 +520,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -480,6 +541,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -557,25 +637,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -586,6 +647,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -610,6 +682,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">
@@ -747,7 +826,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -768,6 +847,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -845,25 +943,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -874,6 +953,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -898,6 +988,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">

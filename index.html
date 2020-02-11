@@ -123,6 +123,187 @@
     
 <div class="card">
     
+    <div class="card-image">
+        <a href="/posts/918ab41d/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1313 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/918ab41d/">archlinuxa安装配置</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://wiki.archlinux.org/index.php/Installation_guide" target="_blank" rel="noopener">参考官方文档</a></p>
+<h2 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h2><h3 id="设置字体"><a href="#设置字体" class="headerlink" title="设置字体"></a>设置字体</h3><p>刚进入系统，默认的字体特别小，用一下命令设置字体</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x12.psfu.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证启动模式"><a href="#验证启动模式" class="headerlink" title="验证启动模式"></a>验证启动模式</h3><p>输入以下命令查看启动模式</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
+
+<p>若有输出，则为 <code>UEFI</code>，否则为<code>BOIS</code></p>
+<h3 id="连接网络"><a href="#连接网络" class="headerlink" title="连接网络"></a>连接网络</h3><h4 id="有线"><a href="#有线" class="headerlink" title="有线"></a>有线</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dhcpcd</span><br></pre></td></tr></table></figure>
+
+<h4 id="无线"><a href="#无线" class="headerlink" title="无线"></a>无线</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wifi-menu</span><br></pre></td></tr></table></figure>
+
+<p>或者到<a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration" target="_blank" rel="noopener">官方网络配置页面</a>查找解决方式</p>
+<h3 id="更新系统时间"><a href="#更新系统时间" class="headerlink" title="更新系统时间"></a>更新系统时间</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+
+<h3 id="分区与格式化"><a href="#分区与格式化" class="headerlink" title="分区与格式化"></a>分区与格式化</h3><p>查看目前分区情况</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<h4 id="引导分区"><a href="#引导分区" class="headerlink" title="引导分区"></a>引导分区</h4><ul>
+<li>如果你是BIOS/MBR方式引导，无需创建引导分区。</li>
+<li>如果你是EFI/GPT方式引导，并且同时安装了其他系统，那么你应该可以在分区列表中发现一个较小的并且类型为 EFI 的分区（注意查看硬盘的大小，这个<code>EFI</code>分区有可能是你U盘中的，需要排除），这是你的引导分区，请记下它的路径（/dev/sdxY)备用，创建引导分区的步骤。</li>
+<li>如果你是EFI/GPT方式引导，但是没有这个较小的并且类型为EFI的引导分区（这种情况一般只会出现在新的硬盘），那么你需要先创建引导分区。</li>
+</ul>
+<h4 id="分区创建"><a href="#分区创建" class="headerlink" title="分区创建"></a>分区创建</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdx # sdx 为你要操作的磁盘</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 输入 m 查看帮助</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 具体参数看帮助内容</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 创建引导分区需要更改文件格式为 efi</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h4><ul>
+<li><p>格式化引导分区</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/sdxx # sdxx 为你刚刚创建的引导分区</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化 <code>swap</code> 分区</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sdxy # sdxy 为你刚刚分区的 swap 分区</span><br><span class="line">swapon /dev/sdxy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化其他分区为 <code>ext4</code></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdxz # sdxz 为你要格式化的分区，如 /，/home 等等</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h4><ul>
+<li><p>挂载根分区</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdxz /mnt # sdxz 为根分区</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>挂载引导分区（如果有引导分区）</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/boot</span><br><span class="line">mount /dev/sdxx /mnt/boot # sdxx 为引导分区</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他分区</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/home # 以 home 分区为例，其他类似</span><br><span class="line">mount /dev/sdxz /mnt/home # sdxz 为 home 分区</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="选择镜像源"><a href="#选择镜像源" class="headerlink" title="选择镜像源"></a>选择镜像源</h3><p>编辑 <code>/etc/pacman.d/mirrorlist</code> 文件，将所有国内源剪切到文件开头。</p>
+<p>同时可以编辑 <code>etc/pacman.conf</code> 文件，将 <code>Color</code> 取消注释，可以让 <code>pacman</code> 安装输出彩色。</p>
+<h3 id="安装基本包"><a href="#安装基本包" class="headerlink" title="安装基本包"></a>安装基本包</h3><p>安装基本的软件包到磁盘上，需要联网</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware dhcpcd</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Fstab"><a href="#配置-Fstab" class="headerlink" title="配置 Fstab"></a>配置 Fstab</h3><p>生成自动挂载分区的 <code>fstab</code> 文件</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -L /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<h3 id="Chroot"><a href="#Chroot" class="headerlink" title="Chroot"></a>Chroot</h3><p><code>Chroot</code> 意为 <code>Change root</code>，相当于把操纵权交给我们新安装（或已经存在）的<code>Linux</code>系统，执行了这步以后，我们的操作都相当于在磁盘上新装的系统中进行。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<h4 id="提前安装必须软件"><a href="#提前安装必须软件" class="headerlink" title="提前安装必须软件"></a>提前安装必须软件</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S neovim dialog wpa_supplicant ntfs-3g networkmanager</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置-Local"><a href="#设置-Local" class="headerlink" title="设置 Local"></a>设置 Local</h4><p>编辑<code>/etc/locale.gen</code>文件，在文件中找到<code>zh_CN.UTF-8 UTF-8</code> 、 <code>en_US.UTF-8 UTF-8</code>这两行，去掉行首的#号，保存并退出。</p>
+<p>然后执行</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+
+<p>创建 并编辑 <code>/etc/locale.conf</code> 文件</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nvim /etc/locale.conf</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 在第一行写入并保存</span></span><br><span class="line">LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nvim /etc/hostname</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 在文件的第一行输入你自己设定的一个myhostname</span></span><br><span class="line">arch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nvim /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 在文件末尾写入</span></span><br><span class="line">127.0.0.1	localhost</span><br><span class="line">::1		localhost</span><br><span class="line">127.0.1.1	arch.localdomain	arch</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置-Root-密码"><a href="#设置-Root-密码" class="headerlink" title="设置 Root 密码"></a>设置 Root 密码</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 按提示设置并确认就可以了</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="引导配置"><a href="#引导配置" class="headerlink" title="引导配置"></a>引导配置</h4><ul>
+<li>安装软件</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-ucode os-prober ntfs-3g grub efibootmgr</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>部署 <code>grub</code></li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成配置文件</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 退出</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 前面挂载的分区全部卸载</span></span><br><span class="line">umount /mnt/boot</span><br><span class="line">umount /mnt/home</span><br><span class="line">umount /mnt</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 重启</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装后"><a href="#安装后" class="headerlink" title="安装后"></a>安装后</h2><p>这一部分主要讲安装完裸 <code>archlinux</code> 后配置桌面环境等内容。</p>
+<p>我主要是使用窗口管理器，所以没有安装桌面环境，有需要的请自行安装。</p>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> systemctl enable dhcpcd</span><br><span class="line">systemctl start dhcpcd</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel username # username 换成你自己的 </span><br><span class="line">passwd username</span><br><span class="line"></span><br><span class="line">ln -sf /usr/bin/nvim /usr/bin/vi</span><br><span class="line">visudo</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 找到 <span class="hljs-comment"># %wheel ALL=(ALL)ALL，取消注释</span></span></span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h3 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a>图形化界面</h3><ul>
+<li>xorg</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xf86-video-intel xorg xorg-xinit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dwm &amp; menu &amp; st</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/GallonHu/dwm.git</span><br><span class="line">git clone https://github.com/GallonHu/st.git</span><br><span class="line">git clone https://git.suckless.org/dmenu</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 分别进入三个文件夹</span></span><br><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://github.com/Jguer/yay" target="_blank" rel="noopener">yay</a></li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://aur.archlinux.org/yay.git</span><br><span class="line">cd yay</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字体 &amp; 表情 &amp; 图标 &amp; 主题</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yay -S ttf-linux-libertine ttf-inconsolata ttf-joypixels ttf-twemoji-color noto-fonts-emoji ttf-liberation ttf-droid</span><br><span class="line">yay -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">nerd-fonts</a></p>
+<p><a href="https://github.com/stark/siji" target="_blank" rel="noopener">siji</a></p>
+<ul>
+<li>软件包</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S acpi acpitool adapta-gtk-theme alsa-utils feh google-chrome htop gnome-screenshot lxappearance nerd-fonts-source-code-pro network-manager-applet picom simplescreenrecorder screenkey thunar trayer tlp unzip vlc w3m xfce4-power-manager xfce4-volumed-pulse zip zsh lazygit ranger fzf</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@rodlong?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Rod Long"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Rod Long</span></a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -225,7 +406,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 34 个字)
+                    6 分钟 读完 (大约 922 个字)
                 </span>
                 
                 
@@ -238,9 +419,33 @@
             
         </h1>
         <div class="content">
-            <p>接<a href="https://gallonhu.github.io/posts/848c0324/">上一篇</a></p>
-<p>第一眼看到的就是你，最后一眼看到的也是你</p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mfildzafadzil?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from M.Fildza Fadzil"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">M.Fildza Fadzil</span></a></p>
+            <p>基本上，只要你使用过终端，多多少少应该都接触过 vim，但对大多数的新手来说，vim 的体验感绝对算不上好，甚至可以用糟糕来形容。但事实上，大部分人都没能体会到 vim 的牛逼之处就早早的放弃了，所以我们接<a href="https://gallonhu.github.io/posts/848c0324/">上一篇</a>，这次好好讲一讲 <code>vim</code> 的使用。</p>
+<p>首先，vim 是什么？本质上来讲，vim 只是一个编译器，只不过以下的几个特性让它变得不可思议：</p>
+<ol>
+<li>几乎在所有平台、ide 都内置</li>
+<li>高度可定制化（包括大量的插件）</li>
+<li>支持所有的编程语言</li>
+</ol>
+<p>老规矩，文章分为三部分：安装、配置和插件。</p>
+<p>先放效果图</p>
+<img src="https://cdn.jsdelivr.net/gh/GallonHu/pic@master/screenshot/Screen-Shot-2020-01-19-at-10.34.45-AM.png" style="zoom:80%;">
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>对于几乎所有的 <code>Linux</code> 或者 <code>Unix</code> 系统，都内置安装了 vim，这里就不过多的介绍 vim 了，我们主要来介绍基于 vim 开发的另外一个东西——<a href="https://github.com/neovim/neovim" target="_blank" rel="noopener">neovim</a>，至于我为什么使用 neovim，主要是以下几点</p>
+<h3 id="全面并发"><a href="#全面并发" class="headerlink" title="全面并发"></a>全面并发</h3><p>虽说 vim 8 也开始支持了，但这当初应该是被 neovim 倒逼出来的。</p>
+<h3 id="默认配置更加友好"><a href="#默认配置更加友好" class="headerlink" title="默认配置更加友好"></a>默认配置更加友好</h3><p>说起来 vim 的一些过时默认配置会让你大吃一惊，比如它默认的 encoding 至今依然是 <code>latin1</code> ！neovim 当然早改用 <code>utf-8</code> 了。还有<a href="https://neovim.io/doc/user/vim_diff.html#nvim-defaults" target="_blank" rel="noopener">一些不合时宜的默认 setting 也纷纷得到了修改</a>，免去用户手动配置之苦，我就在迁移原 <code>.vimrc</code> 时删去了 25 行多，净化完毕，更加极简！</p>
+<h3 id="充分遵循-XDG-规范"><a href="#充分遵循-XDG-规范" class="headerlink" title="充分遵循 XDG 规范"></a>充分遵循 XDG 规范</h3><p>vim 默认的 <code>.vimrc</code> 和 <code>.vim</code> 均一般在 <code>$HOME</code> 下，neovim 则全挪为 <code>$XDG_CONFIG_HOME/nvim/init.vim</code> 和 <code>$XDG_CONFIG_HOME/nvim</code>.</p>
+<p>vim 编辑文件时，可以有多达四个的数据文件：<code>backup</code>, <code>swapfile</code>, <code>undofile</code> 和 <code>viminfo</code>. Unix 下的 vim 分别默认存在 <code>&quot;.,~/tmp,~/&quot;</code>, <code>&quot;.,~/tmp,/var/tmp,/tmp&quot;</code>, <code>&quot;.&quot;</code>, 其中 <code>viminfo</code> 的具体储存位置我一时还查不出来，就懒得深究了。后来得知：undofile 默认没有值，不保存撤销记录，viminfo 位于用户目录。</p>
+<p>neovim 则全改储存在 <code>$XDG_DATA_HOME/nvim/</code> 下各自的目录里，此外 viminfo 更是被抛弃，被叫 ShaDa 且更为先进的二进制文件所代替，后者位于 <code>$XDG_DATA_HOME/nvim/shada/main.shada</code>。</p>
+<p>再加上用户自行安装的 neovim 二进制包也在 <code>$HOME/.local/bin</code> 里，一家人更加整整齐齐。</p>
+<p>至于如何安装，请自行解决。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>我的配置目录如下</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">~/.config/nvim</span><br><span class="line">➜ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── autoload</span><br><span class="line">│   └── functions.vim</span><br><span class="line">├── colors</span><br><span class="line">│   ├── NeoSolarized.vim</span><br><span class="line">│   └── solarized.vim</span><br><span class="line">├── init.vim</span><br><span class="line">└── rc</span><br><span class="line">    ├── 01.settings.vim</span><br><span class="line">    ├── 02.plugin.vim</span><br><span class="line">    ├── 03.airline.vim</span><br><span class="line">    ├── 04.tabs.vim</span><br><span class="line">    ├── 05.dev.vim</span><br><span class="line">    ├── 06.tagbar.vim</span><br><span class="line">    ├── 07.ctrlp.vim</span><br><span class="line">    ├── 08.fzf.vim</span><br><span class="line">    ├── 09.nerdtree.vim</span><br><span class="line">    └── 10.startify.vim</span><br></pre></td></tr></table></figure>
+
+<p>刚安装时，默认的配置文件只有 <code>init.vim</code>，neovim 默认会加载它。这里我们先看看我的配置</p>
+<figure class="highlight shell hljs"><figcaption><span>init.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for f in split(glob('~/.config/nvim/rc/*.vim'), '\n')</span><br><span class="line">    exe 'source' f</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+
+<p>其实，思路很简单，真正的配置都放在 <code>rc</code> 目录下，这样做的目的是使配置文件更加的清晰简单，大概就是分为基础配置，插件安装，插件配置三大块，大家根据名字应该能很容易的理解</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mfildzafadzil?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from M.Fildza Fadzil"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">M.Fildza Fadzil</span></a></p>
 
         </div>
         
@@ -629,67 +834,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/posts/8509da34/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1576344069300-e4273f6dfdf8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="spark基本概念">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-16T02:43:38.000Z">2019-12-16</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 小时 读完 (大约 11052 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/posts/8509da34/">spark基本概念</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="RDD-Programming-Guide"><a href="#RDD-Programming-Guide" class="headerlink" title="RDD Programming Guide"></a>RDD Programming Guide</h1><p>翻译自<a href="http://spark.apache.org/docs/latest/rdd-programming-guide.html" target="_blank" rel="noopener">官方文档</a>，本文值翻译了部分 Python 部分。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>从高层次看，每个 Spark 应用都包含一个驱动程序，用于执行用户的 main 函数以及在集群上进行各种并行操作。Spark 提供的重要抽象是弹性分布式数据集（ <em>resilient distributed dataset</em>），这是一个包含诸多元素、被划分到不同节点上进行并行处理的数据集。RDDs 通过打开一个 HDFS 文件（或者其他任何 hadoop 支持的文件系统）、在驱动程序中打开一个已有的 Scala 数据集或者由其他 RDD 转换得到。用户可以要求 Spark 将 RDD 持久化到内存中，这样可以有效的在并行运算中复用。另外，RDDs 在节点发生错误时会自动恢复。</p>
-<p>Spark 的另一个抽象是在并行运算中使用的共享变量。在默认情况下，当 Spark 将一个函数转化成许多任务在不同节点上运行的时候，对于所有在函数中使用的变量，每一个任务都会得到一个副本。有时，一个变量需要在任务之间或者任务和驱动程序之间共享。Spark 支持两种共享变量：广播变量，用来将一个值缓存到所有节点的内存中；累加器，只能用于累加，比如计数器和求和。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/8509da34/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -754,7 +898,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            13
+                            14
                         </p>
                     </a>
                 </div>
@@ -778,7 +922,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            14
+                            15
                         </p>
                     </a>
                 </div>
@@ -847,7 +991,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -868,6 +1012,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -945,25 +1108,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -974,6 +1118,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -998,6 +1153,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">
@@ -1135,7 +1297,7 @@
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Tutorials/">
@@ -1156,6 +1318,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/918ab41d/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1508971607899-a238a095d417?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2768&amp;q=80" alt="archlinuxa安装配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-11T02:07:07.000Z">2020-02-11</time></div>
+                    <a href="/posts/918ab41d/" class="title has-link-black-ter is-size-6 has-text-weight-normal">archlinuxa安装配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1233,25 +1414,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/posts/dd355129/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.unsplash.com/photo-1576324664260-6bd535711bcb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=662&amp;q=80" alt="shell相关">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T03:19:34.000Z">2019-12-16</time></div>
-                    <a href="/posts/dd355129/" class="title has-link-black-ter is-size-6 has-text-weight-normal">shell相关</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorials/">Tutorials</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1262,6 +1424,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -1286,6 +1459,13 @@
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Archlinux/">
+                        <span class="tag">Archlinux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Blog/">
